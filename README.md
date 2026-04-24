@@ -1,6 +1,6 @@
 # ParaKit for Paradiddle / Paradiddle VR
 ### Custom Song Creator & All-in-One Tool — v3.3.0
-*Created by Micah P.G.*
+*App is a work in progress, I will release updates as needed as frequently as possible, thank you*
 
 ---
 
