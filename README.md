@@ -114,6 +114,7 @@ CPU times are typically **45s to ~1m30s** depending on your processor.
 ## Audio → MIDI — Tips & Genre Guide
 
 The auto-detector gives you a strong starting point, not a finished chart. Always clean up the output in the MIDI Editor. **Use Reclassify mode first** — a misclassified note is always better than a missing one because the timing is already correct.
+The Audio to MIDI generator will sometimes place the notes slightly off the point they should be, use the quantify feature either en-mass or individually to fix, or use the snap/drag manually method.
 
 ### Genre Presets
 
