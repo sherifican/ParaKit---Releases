@@ -5,7 +5,7 @@
 ---
 
 Compatible with **Paradiddle (PC)** and **Paradiddle VR (Meta Quest 3)**
-Built for use with any e-drum kit or acoustic drum setup
+Built for use with any supported e-drum kit or the in game kit
 
 > 📖 Refer to this README whenever you need help. The **Quick Start & FAQ** tab (Tab 11) inside the app also covers common questions and fixes.
 
