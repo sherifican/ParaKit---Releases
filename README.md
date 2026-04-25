@@ -8,7 +8,8 @@
 
 > 📦 **v3.5+ ships with all requirements included in the main .zip download** — no separate installs needed.
 
-The goal of this project is to make MIDI charting for Paradiddle as accessible as possible — no paywalls, no confusing professional audio software, no barrier to entry. If you've ever wanted to play a song that isn't in the game, this tool is for you.
+The goal of this project is to make MIDI charting for Paradiddle as accessible as possible — no paywalls, no confusing professional audio software, lower barrier to entry. If you've ever wanted to play a song that isn't in the game, this tool is for you.
+*I'm trying to make the app as straightforward and drum focused as possible.
 
 Compatible with **Paradiddle (PC)** and **Paradiddle VR (Meta Quest 3)**
 Built for use with any supported e-drum kit or the in-game virtual kit
