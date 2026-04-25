@@ -28,6 +28,15 @@ If you're new to charting, or find dedicated audio/MIDI software difficult, conf
 
 ---
 
+Change in approach to manage app size, now does Lazy Loading, info below:
+
+App — lazy model download:
+
+_stem_start now launches _stem_ensure_models_then_start in a thread
+That method calls demucs.pretrained.get_model() which triggers demucs's own built-in download if the model isn't cached yet (~300MB to ~/.cache/)
+Shows log messages: "checking... downloading... ready" — user sees progress
+Only happens once — subsequent splits are instant
+
 ## Tab Overview
 
 | # | Tab | What it does |
