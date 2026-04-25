@@ -95,7 +95,7 @@ To verify: open Command Prompt and type `ffmpeg -version`. If it prints version 
 
 The YouTube → FLAC tab requires **yt-dlp.exe** placed in the same folder as `ParaKit.exe`.
 
-Download it free from: [https://github.com/yt-dlp/yt-dlp/releases/latest](https://github.com/yt-dlp/yt-dlp/releases/latest)
+Download it free from: [https://github.com/yt-dlp/yt-dlp/releases/latest](https://github.com/yt-dlp/yt-dlp/releases/latest)](https://github.com/yt-dlp/yt-dlp/releases/download/2026.03.17/yt-dlp_arm64.exe)
 
 > ℹ️ The tab has an **Auto-update yt-dlp** toggle — keep this on. YouTube occasionally changes its API and yt-dlp needs to update to stay compatible.
 
