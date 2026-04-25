@@ -34,8 +34,8 @@ App — lazy model download:
 
 _stem_start now launches _stem_ensure_models_then_start in a thread
 That method calls demucs.pretrained.get_model() which triggers demucs's own built-in download if the model isn't cached yet (~300MB to ~/.cache/)
-Shows log messages: "checking... downloading... ready" — user sees progress
-Only happens once — subsequent splits are instant
+Shows log messages: "checking... downloading... ready" — user sees progress,
+only happens once — subsequent splits are instant
 
 ## Tab Overview
 
