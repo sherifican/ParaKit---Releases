@@ -24,40 +24,64 @@ If you're new to charting, don't know where to start, or find dedicated audio/MI
 ---
 
 Quick Start
+
 STEP 1 → Stem Splitter (Tab 4)
 Split your source audio into drums-only and backing tracks. Use `.flac` or `.wav` for best quality. Use YouTube → FLAC (Tab 8) if you need a lossless source.
+
 STEP 2 → Audio → MIDI (Tab 5) (or Sheet Music → MIDI, Tab 7)
 Generate MIDI from the drums-only stem. Select the Genre closest to your song. Click Open Last Result in Editor after converting.
+
 STEP 3 → MIDI Editor (Tab 6)
 Clean up the MIDI. Use Reclassify mode for wrong instruments. Use 1–8 hotkeys to place notes while listening. Set dynamics with the Velocity Lane.
+
 STEP 3.5 → Track Preview (Tab 11) (optional but recommended)
 Watch your chart as falling notes exactly as in Paradiddle.
+
 STEP 4 → Song Tester (Tab 10)
 Verify sync before converting. False positives may appear after manual edits — confirm in-game.
+
 STEP 5 → Asset Manager (Tab 9) (optional)
 Auto-fetch metadata, crop album art to 1:1, trim a 15s preview clip.
+
 STEP 6 → Single Song Creator (Tab 1)
 Combine everything into a `.rlrr` file. Enable Also save as .zip for a shareable archive.
+
 STEP 7 → Deploy
+
 PC: `Documents\Paradiddle\Songs\`
 Quest (USB): Click 📲 Push to Quest (requires `adb.exe`)
 Quest (manual): `Internal Shared Storage\Paradiddle\Songs\`
 ---
 Setup
+
 ⚠️ FFmpeg — Required
+
 Download [ffmpeg-release-essentials.zip from gyan.dev/ffmpeg/builds]
+
 Extract to `C:\ffmpeg`
+
 Add `C:\ffmpeg\bin` to Windows System PATH
+
 Verify: open Command Prompt → `ffmpeg -version`
+
 YouTube → FLAC — yt-dlp Required
+
 Download `yt-dlp.exe` from [github.com/yt-dlp/yt-dlp/releases/latest] and place next to `ParaKit.exe`. Keep Auto-update yt-dlp checked.
+
 Push to Quest — ADB Required
+
 Download Android SDK Platform Tools, extract, place `adb.exe` next to `ParaKit.exe`.
+
 One-time Quest setup: Meta app → Menu → Devices → [headset] → Developer Mode → On. Plug in USB, accept debugging prompt inside headset.
+
 GPU Acceleration (Stem Splitter)
+
 GPU	Status
+
 NVIDIA GTX 10 – RTX 40 series	✅ Full GPU (~30s per song)
+
 NVIDIA RTX 50-series	⚠️ CPU only — PyTorch support pending
+
 AMD / Intel	🖥️ Always CPU — Demucs requires CUDA (NVIDIA-exclusive)
 ---
 MIDI Editor Quick Reference
