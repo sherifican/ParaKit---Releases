@@ -91,41 +91,24 @@ MIDI Editor Quick Reference
 1–8 Note Hotkeys
 
 Key	Lane	Key	Lane
-
 `1`	Kick	`5`	Ride
-
 `2`	Snare	`6`	Tom 1
-
 `3`	Hi-Hat	`7`	Tom 2
-
 `4`	Crash	`8`	Floor Tom
-
 Place at playhead (playing) or last canvas click (paused). Snap to Grid applies.
 
 Keyboard Shortcuts
-
 Key	Action
-
 `P`	Play / pause
-
 `S`	Stop
-
 `T`	Tap offset
-
 `B`	Tap BPM for last tempo entry
-
 `D`	Place marker
-
 `Middle-click`	Place marker at position
-
 `Ctrl+Z / Y`	Undo / Redo
-
 `Ctrl+C / V`	Copy / Paste notes
-
 `Ctrl+Q`	Quantize to 16th grid
-
 `Ctrl+scroll`	Zoom
-
 `Delete`	Remove selected notes/markers
 
 Velocity & Dynamics
@@ -153,15 +136,10 @@ Edit Tools
 ---
 
 Audio Format Guide
-
 > ⚠️ Use `.flac` or `.wav` whenever possible. Converting MP3 → FLAC does **not** recover quality.
-
 Format	Notes
-
 `.flac`	Best — lossless, compressed
-
 `.wav`	Lossless, larger files
-
 `.mp3`	Accepted but degrades stem/MIDI quality
 
 ---
@@ -169,21 +147,13 @@ Format	Notes
 Paradiddle MIDI Note Mapping
 
 MIDI Notes	Instrument
-
 35, 36	Kick Drum
-
 37, 38, 40	Snare
-
 41, 43	Floor Tom
-
 42, 44, 46	Hi-Hat
-
 45, 47	Tom 2
-
 48, 50	Tom 1
-
 49, 55, 57	Crash
-
 51, 53, 59	Ride
 
 ---
