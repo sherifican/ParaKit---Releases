@@ -83,110 +83,211 @@ NVIDIA GTX 10 – RTX 40 series	✅ Full GPU (~30s per song)
 NVIDIA RTX 50-series	⚠️ CPU only — PyTorch support pending
 
 AMD / Intel	🖥️ Always CPU — Demucs requires CUDA (NVIDIA-exclusive)
+
 ---
+
 MIDI Editor Quick Reference
+
 1–8 Note Hotkeys
+
 Key	Lane	Key	Lane
+
 `1`	Kick	`5`	Ride
+
 `2`	Snare	`6`	Tom 1
+
 `3`	Hi-Hat	`7`	Tom 2
+
 `4`	Crash	`8`	Floor Tom
+
 Place at playhead (playing) or last canvas click (paused). Snap to Grid applies.
+
 Keyboard Shortcuts
+
 Key	Action
+
 `P`	Play / pause
+
 `S`	Stop
+
 `T`	Tap offset
+
 `B`	Tap BPM for last tempo entry
+
 `D`	Place marker
+
 `Middle-click`	Place marker at position
+
 `Ctrl+Z / Y`	Undo / Redo
+
 `Ctrl+C / V`	Copy / Paste notes
+
 `Ctrl+Q`	Quantize to 16th grid
+
 `Ctrl+scroll`	Zoom
+
 `Delete`	Remove selected notes/markers
+
 Velocity & Dynamics
+
 Range	Type	Visual
+
 1–39	Ghost note	Hollow outline
+
 40–114	Normal	Solid fill
+
 115–127	Accent	Solid + white outline
+
 Edit Tools
+
 ⊞ Quantize — snap to 16th grid
+
 ⧉/⧈ Copy/Paste — relative positions, pastes at playhead
+
 × Dedup — remove stacked duplicate notes
+
 ↻ Repeat — tile selection once after itself
+
 🥁 Flam — grace note (vel 30) 30ms before each selected note
+
 ---
+
 Audio Format Guide
+
 > ⚠️ Use `.flac` or `.wav` whenever possible. Converting MP3 → FLAC does **not** recover quality.
+
 Format	Notes
+
 `.flac`	Best — lossless, compressed
+
 `.wav`	Lossless, larger files
+
 `.mp3`	Accepted but degrades stem/MIDI quality
+
 ---
+
 Paradiddle MIDI Note Mapping
+
 MIDI Notes	Instrument
+
 35, 36	Kick Drum
+
 37, 38, 40	Snare
+
 41, 43	Floor Tom
+
 42, 44, 46	Hi-Hat
+
 45, 47	Tom 2
+
 48, 50	Tom 1
+
 49, 55, 57	Crash
+
 51, 53, 59	Ride
+
 ---
+
 Common Problems
+
 Problem	Fix
+
 Notes out of sync	Run Song Tester; use .ogg not MP3
+
 Wrong instrument	Reclassify mode in MIDI Editor
+
 Toms missing	Add manually or Reclassify — unreliable
+
 Stem Splitter fails	FFmpeg not on PATH
+
 Stem Splitter slow	Normal for AMD/Intel and RTX 50-series
+
 YouTube fails	Check yt-dlp next to exe; Auto-update on
+
 Push to Quest fails	Accept USB debugging prompt in headset
+
 App crashed silently	Check `parakit_crash.txt` next to exe
+
 Zip missing files	Confirm conversion succeeded first
+
 Drag/drop broken	Use Browse buttons
 
 What's New in v3.5.0
+
 🎨 Asset Manager (Tab 9)
+
 Auto-Fetch Metadata — searches MusicBrainz for title/artist/album and iTunes for cover art. One click fills Song Creator fields. Cover art can be overridden by manually browsing in Song Creator — an indicator shows when art came from auto-fetch.
+
 Album Art Cropper — crops any image to a centered 1:1 square at 256/512/1024px. Paradiddle requires square art.
+
 Preview Audio Trimmer — exports any clip as `.ogg` (~15s recommended) for the Paradiddle song selection menu.
+
 📲 Push to Quest (ADB)
+
 📲 Push to Quest button in Song Creator sends the converted song folder directly to a connected Meta Quest via USB. No SideQuest or file manager needed.
+
 Requires `adb.exe` placed next to `ParaKit.exe` (download here).
+
 Quest one-time setup: enable Developer Mode in the Meta app, plug in USB, accept the debugging prompt inside the headset.
+
 📦 Zip Output
+
 Also save as .zip toggle in Song Creator automatically zips the output folder after conversion.
+
 Optional Zip To folder — leave blank to save the zip next to the output folder.
+
 Ready-to-share archive for ParadiddleDB or community upload.
+
 👻 Ghost Overlay (MIDI Editor)
+
 Load a second MIDI file as faded background notes in the piano roll.
+
 Ideal for difficulty scaling — chart Expert, then load it as a ghost while charting Hard or Medium.
+
 Opacity slider (10–60%). Non-interactive — ghost notes cannot be clicked or moved.
+
 Ghost & Accent Visual Distinction (MIDI Editor)
+
 Ghost notes (vel < 40) — hollow outline, no fill. Matches Paradiddle's in-game hollow note appearance.
+
 Accent notes (vel ≥ 115) — solid fill + white outline.
+
 Normal notes (vel 40–114) — solid fill as before.
+
 🧪 Custom Isolation Split — Stem Splitter (BETA)
+
 Isolate individual drum parts (Kick, Snare, Hi-Hat, Toms, Cymbals) as separate `.ogg` files using the `htdemucs\_6s` model.
+
 > ⚠️ \*\*BETA — results are NOT perfect.\*\* Bleed between instruments is expected. \*\*Not recommended as input for Auto MIDI generation\*\* — use the standard drums-only stem for that. Best use: load isolated stems into the MIDI Editor for per-lane note verification.
 Selecting all 5 parts simultaneously reverts to the standard split automatically.
+
 🛡 Global Crash Handler
+
 Fatal crashes now show a user-friendly dialog and write `parakit\_crash.txt` next to the exe.
+
 `parakit\_debug.log` written on every launch for troubleshooting.
+
 Bug Fixes
+
 Extra kick note appearing on canvas clicks — root binding conflict fixed (`<Key-1>` format)
+
 Hotkeys 3, 4, 5 broken — same fix
+
 Layered audio playing multiple copies simultaneously — stop-before-play added
+
 Mixer popup floating over other tabs / visible on desktop when minimized — fixed with `transient()` Toplevel
+
 Status bar / keyboard shortcut legend disappeared — layout fixed
+
 Pause/resume broken in layered mode — all stem channels handled correctly
+
 Cyan listed in markers help but not in menu — corrected to Sky Blue
+
 ---
 Tab Overview
+
 #	Tab	Purpose
+
 1	Single Song Creator	Convert MIDI + audio into a `.rlrr` Paradiddle chart
 
 2	Audio to .ogg Converter	Convert audio to .ogg format
@@ -210,17 +311,27 @@ Tab Overview
 11	Track Preview	Watch chart as falling notes
 
 12	Quick Start & FAQ	Built-in guide and troubleshooting
+
 ---
 
 Changelog
+
 Version	Summary
+
 v3.5.0	Asset Manager, auto-metadata, ADB Push to Quest, zip output, ghost overlay, ghost/accent visual, custom stem isolation (BETA), crash handler, major bug fixes
+
 v3.3.2	Multi-stem workspace, layered audio, 1-8 hotkeys, flam, markers, velocity lane, quantize, copy/paste, dedup, repeat, YouTube tab, auto-updater
+
 v3.3.0	YouTube FLAC, auto-updater, velocity lane, edit tools, markers, notes fill row height
+
 v3.2.0	Sheet Music → MIDI, rubber-band multi-select, rename to ParaKit
+
 v3.1.0	Multi-select, playback speed, loop, project save/load
+
 v3.0.0	ParaKit rebrand, dark theme, genre presets
+
 ---
 
 *Created by Micah P.G. — ParaKit v3.3.0 — For the Paradiddle Community*# ParaKit---Releases
+
 All in one tool built for Paradiddle to make it easier for beginners or people who just don't want to use other audio software that could be confusing or frustrating for some (me)
