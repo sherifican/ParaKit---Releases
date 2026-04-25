@@ -1,7 +1,7 @@
 # ParaKit for Paradiddle / Paradiddle VR
 ### Custom Song Creator & All-in-One Tool — v3.3.0
 *App is a work in progress, I will release updates as needed as frequently as possible, thank you*
-
+See "What's New" at the bottom for list of updated features and changes/fixes
 ---
 
 Compatible with **Paradiddle (PC)** and **Paradiddle VR (Meta Quest 3)**
@@ -162,16 +162,27 @@ Cyan listed in markers help but not in menu — corrected to Sky Blue
 Tab Overview
 #	Tab	Purpose
 1	Single Song Creator	Convert MIDI + audio into a `.rlrr` Paradiddle chart
+
 2	Audio to .ogg Converter	Convert audio to .ogg format
+
 3	Create Multiple Songs	Batch convert multiple songs
+
 4	Stem Splitter	AI separation — drums vs backing track
+
 5	Audio → MIDI	Auto-detect drum hits from audio
+
 6	MIDI Editor	Edit, clean up, and build drum MIDI charts
+
 7	Sheet Music → MIDI	Convert MusicXML drum charts to MIDI
+
 8	YouTube → FLAC	Download YouTube audio as FLAC
+
 9	Asset Manager	Metadata, album art, preview clips
+
 10	Song Tester	Verify BPM and sync
+
 11	Track Preview	Watch chart as falling notes
+
 12	Quick Start & FAQ	Built-in guide and troubleshooting
 ---
 
