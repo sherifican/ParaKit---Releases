@@ -2,6 +2,8 @@
 ### Custom Song Creator & All-in-One Tool — v3.3.0
 *App is a work in progress, I will release updates as needed as frequently as possible, thank you*
 See "What's New" at the bottom for list of updated features and changes/fixes
+v3.5 + will now ship with the requirements in the main .zip download 
+ALT DOWNLOAD LINK: [https://limewire.com/d/svTK9#fqZoG5vUjc]
 ---
 
 Compatible with **Paradiddle (PC)** and **Paradiddle VR (Meta Quest 3)**
@@ -15,7 +17,7 @@ Built for use with any supported e-drum kit or the in game kit
 
 ## Is ParaKit Right for You?
 
-If you're already experienced with MIDI charting and have your own workflow using tools like Reaper, Audacity, or similar — ParaKit probably isn't your primary tool. That said, parts of it may still save you steps: the Song Creator and batch converter, Stem Splitter, Sheet Music → MIDI, and Track Preview can slot into an existing workflow without replacing it.
+If you're already experienced with MIDI charting and have your own workflow using tools like Reaper, Audacity, or similar — ParaKit probably isn't gonna replace your primary tools or workflow. That said, parts of it may still save you steps: the Song Creator and batch converter, Stem Splitter, Sheet Music → MIDI, Youtube → FLAC, Asset Manager/Auto MetaData Finder, and Track Preview can slot into an existing workflow without replacing it.
 
 If you're new to charting, don't know where to start, or find dedicated audio/MIDI software intimidating — ParaKit is probably exactly what you're looking for. It handles the full pipeline in one place, with a built-in guide and enough automation to get a playable chart without prior experience.
 
@@ -43,12 +45,12 @@ Quest (manual): `Internal Shared Storage\Paradiddle\Songs\`
 ---
 Setup
 ⚠️ FFmpeg — Required
-Download ffmpeg-release-essentials.zip from gyan.dev/ffmpeg/builds
+Download [ffmpeg-release-essentials.zip from gyan.dev/ffmpeg/builds]
 Extract to `C:\ffmpeg`
 Add `C:\ffmpeg\bin` to Windows System PATH
 Verify: open Command Prompt → `ffmpeg -version`
 YouTube → FLAC — yt-dlp Required
-Download `yt-dlp.exe` from github.com/yt-dlp/yt-dlp/releases/latest and place next to `ParaKit.exe`. Keep Auto-update yt-dlp checked.
+Download `yt-dlp.exe` from [github.com/yt-dlp/yt-dlp/releases/latest] and place next to `ParaKit.exe`. Keep Auto-update yt-dlp checked.
 Push to Quest — ADB Required
 Download Android SDK Platform Tools, extract, place `adb.exe` next to `ParaKit.exe`.
 One-time Quest setup: Meta app → Menu → Devices → [headset] → Developer Mode → On. Plug in USB, accept debugging prompt inside headset.
