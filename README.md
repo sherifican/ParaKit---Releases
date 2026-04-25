@@ -40,8 +40,8 @@ If you're new to charting or find dedicated audio/MIDI software difficult or con
 | # | Tab | What it does |
 |---|-----|-------------|
 | 1 | **Single Song Creator** | Convert MIDI + audio into a `.rlrr` chart |
-| 2 | Audio to .ogg Converter | Convert audio to .ogg |
-| 3 | Create Multiple Songs | Batch convert |
+| 2 | Create Multiple Songs | Batch convert |
+| 3 | Audio to .ogg Converter | Convert audio to .ogg |
 | 4 | **Stem Splitter** | AI-separate drums from backing |
 | 5 | Audio → MIDI | Auto-detect drum hits, generate MIDI |
 | 6 | **MIDI Editor** | Edit and build drum charts visually |
@@ -150,7 +150,7 @@ CPU times: typically **45 seconds to ~1m30s**.
 | `.wav` | Lossless + uncompressed. Larger files, same quality. |
 | `.mp3` | Accepted but not recommended. |
 
-[Bandcamp](https://bandcamp.com) often offers FLAC downloads directly from artists.
+Use the YouTube → FLAC tab (Tab 8) in the app to download lossless audio directly — this is the recommended source. Bandcamp is a good alternative if you own the release, as it often offers FLAC downloads from artists.
 
 ---
 
