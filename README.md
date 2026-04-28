@@ -361,7 +361,7 @@ Watch your chart fall exactly as it will appear in Paradiddle, synced to your au
 | Version | Summary |
 |---------|---------|
 | **v4.0.6** | MIDI Drums playback in Track Preview using sample .wav files; Review Issues misclassification false-positive fix |
-| **v4.0.3–4.0.5** | Right-click single-note delete, Dedup gap dialog + impossible 3-hit cluster removal, Soft Quantize, Re-run ML, Review Issues wizard, hot pink ML confidence shading, per-song settings memory, kick cross-lane click fix, encoding fix |
+| **v4.0.3–4.0.5** | Dedup gap dialog + impossible 3-hit cluster auto removal improvements, Soft Quantize, Re-run ML button on MIDI editor tab, Review Issues wizard, hot pink ML confidence shading, per-song settings memory, kick cross-lane click fix, encoding fix |
 | **v4.0.2** | Detection controls lock during conversion, dedup mode label, ML log threading fix, output folder persistence |
 | **v4.0.1** | ONNX model auto-detect, update system rebuilt (GitHub version check / Google Drive download), manual-only update check |
 | **v4.0.0** | ML/ONNX Detection Engine (ADTOF), Hybrid mode, confidence threshold, per-engine dedup, graceful fallback |
