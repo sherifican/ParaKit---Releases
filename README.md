@@ -1,3 +1,5 @@
+*NOTE -- v4.0+ is still being developed and will include MASSIVE improvements to the Audio → MIDI auto detector as well as major UI clean up, more Q.O.L. features, and much more!*
+
 # ParaKit for Paradiddle / Paradiddle VR & Clone Hero
 
 ### Custom Song Creator & All-in-One Drum Chart Tool — v4.1.3
@@ -8,6 +10,8 @@
 
 > ⬇️ **DOWNLOAD:** [Google Drive](https://drive.google.com/drive/folders/19x5tjhjzyfij_OkFZEoSsFJpwrg0YNKV)
   Alt: https://limewire.com/d/svTK9#fqZoG5vUjc
+
+  Google Drive link only has placeholder file until v4.0+ release, LimeWire link has current release v3.5.1 + requirements
 
 > 📦 **v3.5+ ships with all requirements included in the main .zip download** — no separate installs needed.
 
