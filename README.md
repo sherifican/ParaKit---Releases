@@ -5,6 +5,7 @@
 *App is a work in progress — updates released as frequently as possible. Thank you for your patience.*
 
 > ⬇️ **DOWNLOAD:** [Google Drive](https://drive.google.com/drive/folders/19x5tjhjzyfij_OkFZEoSsFJpwrg0YNKV)
+  Alt: https://limewire.com/d/svTK9#fqZoG5vUjc
 
 > 📦 **v3.5+ ships with all requirements included in the main .zip download** — no separate installs needed.
 
