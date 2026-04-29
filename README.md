@@ -297,9 +297,9 @@ Click the **🎵 Tempo Map** button below the piano roll to open a floating popu
 
 | Outline color | Meaning |
 |--------------|---------|
-| Lime | Selected note or Accent (vel ≥ 115) |
-| Green | Possible misclassification candidate |
-| Hot pink | Low-confidence ML note (< 70% model confidence) |
+| Hot Pink | Selected note or Accent (vel ≥ 115) |
+| Lime Green | Possible misclassification candidate |
+| Striped Hot Pink Shade | Low-confidence ML note (< 70% model confidence) |
 
 ### Multi-Stem Audio
 
