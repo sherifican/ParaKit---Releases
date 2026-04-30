@@ -1,4 +1,4 @@
-*NOTE -- v4.0+ is still being developed and will include MASSIVE improvements to the Audio → MIDI auto detector as well as major UI clean up, more Q.O.L. features, and much more!*
+*NOTE -- v4.0+ is still being developed and will include MASSIVE improvements to the Audio → MIDI auto detector as well as major UI clean up, more Q.O.L. features, and more*
 
 # ParaKit for Paradiddle / Paradiddle VR & Clone Hero
 
