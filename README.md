@@ -2,6 +2,8 @@
 
 THE DOWNLOAD LINK IS FOR v3.5.1 to be clear! v4.0+ is coming soon
 
+google drive is a placeholder text file for now, v3.5.1 is the limewire link
+
 # ParaKit for Paradiddle / Paradiddle VR & Clone Hero ### Custom Song Creator & All-in-One Drum Chart Tool — v4.2.6 
 *App is a work in progress — updates released as frequently as possible. Thank you for your patience.* 
 
