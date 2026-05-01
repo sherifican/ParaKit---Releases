@@ -1,6 +1,6 @@
 *NOTE -- v4.0+ is still being developed and will include MASSIVE improvements to the Audio → MIDI auto detector as well as major UI clean up, more Q.O.L. features, and more*
 
-the download link is for v3.5.1 to be clear! v4.0+ is coming soon
+THE DOWNLOAD LINK IS FOR v3.5.1 to be clear! v4.0+ is coming soon
 
 # ParaKit for Paradiddle / Paradiddle VR & Clone Hero ### Custom Song Creator & All-in-One Drum Chart Tool — v4.2.6 
 *App is a work in progress — updates released as frequently as possible. Thank you for your patience.* 
