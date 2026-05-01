@@ -47,7 +47,7 @@ If you're new to charting, or find dedicated audio/MIDI software difficult, conf
 | 8 | YouTube -> FLAC | Download YouTube audio as lossless FLAC |
 | 9 | **Asset Manager** | Metadata, album art, preview clips |
 | 10 | Song Tester | Verify BPM and sync |
-| 11 | **Track Preview** | Watch chart as falling notes |
+| 11 | **Track Preview & Mini-Game** | Watch chart as falling notes or play your track using your keyboard as MIDI inputs to test your song's timing and feel |
 | 12 | Quick Start & FAQ | Built-in guide and troubleshooting |
 
 ---
