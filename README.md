@@ -1,17 +1,11 @@
 *NOTE -- v4.0+ is still being developed and will include MASSIVE improvements to the Audio → MIDI auto detector as well as major UI clean up, more Q.O.L. features, and more*
 
-# ParaKit for Paradiddle / Paradiddle VR & Clone Hero
-
-### Custom Song Creator & All-in-One Drum Chart Tool — v4.1.3
-
-*App is a work in progress — updates released as frequently as possible. Thank you for your patience.*
-  
-  I am aware that there are much better and longer standing tools for Clone Hero specifically, I just thought it would be nice to add the option for dual exports.
+# ParaKit for Paradiddle / Paradiddle VR & Clone Hero ### Custom Song Creator & All-in-One Drum Chart Tool — v4.1.3 
+*App is a work in progress — updates released as frequently as possible. Thank you for your patience.* 
+I am aware that there are much better and longer standing tools for Clone Hero specifically, I just thought it would be nice to add the option for dual exports. 
 
 > ⬇️ **DOWNLOAD:** [Google Drive](https://drive.google.com/drive/folders/19x5tjhjzyfij_OkFZEoSsFJpwrg0YNKV)
-  Alt: https://limewire.com/d/svTK9#fqZoG5vUjc
-
-  Google Drive link only has placeholder file until v4.0+ release, LimeWire link has current release v3.5.1 + requirements
+> Alt: https://limewire.com/d/svTK9#fqZoG5vUjc
 
 > **v3.5+ ships with all requirements included in the main .zip download** -- no separate installs needed.
 
@@ -102,7 +96,7 @@ Combine MIDI + audio into a chart. Select **Paradiddle (.rlrr)**, **Clone Hero (
 
 ## Setup
 
-> **ffmpeg, yt-dlp, and adb are all included in the ParaKit release zip.** Extract the full zip and keep the included folder structure together. v4.1.9+ supports a cleaner optional `Requirements\` subfolder for ffmpeg, ffprobe, yt-dlp, and downloaded models.
+> **ffmpeg, yt-dlp, and adb are all included in the ParaKit release zip.** Extract the full zip and keep the included folder structure together. v4.1.8+ supports a cleaner optional `Requirements\` subfolder for ffmpeg, ffprobe, yt-dlp, and downloaded models.
 
 ### FFmpeg -- Included
 
@@ -116,7 +110,7 @@ Manual download if needed: [github.com/yt-dlp/yt-dlp/releases/latest](https://gi
 
 ### Optional Requirements Folder
 
-ParaKit v4.1.9+ can keep external helper files in a cleaner `Requirements\` folder next to `ParaKit.exe`:
+ParaKit v4.1.8+ can keep external helper files in a cleaner `Requirements\` folder next to `ParaKit.exe`:
 
 ```text
 ParaKit.exe
@@ -425,6 +419,13 @@ Watch your chart fall exactly as it will appear in Paradiddle, synced to your au
 
 | Version | Summary |
 |---------|---------|
+| **v4.2.6** | Song Creator: new "Use album art from audio file metadata" toggle. Auto-extracts embedded cover art from the loaded Song Audio file (FLAC, MP3, OGG Vorbis, M4A, MP4), center-crops to 512x512, and uses it as the chart's cover image. WAV and audio with no embedded art show a clear warning. Cover Image row locks while the toggle is on. Toggle state persists across sessions. Front-cover preference applied for all four formats. |
+| **v4.2.5** | Track Preview tab renamed to Practice Mini-Game. Canvases grouped on the left for a more square playfield. New gear button opens a Controls remapping dialog. Per-lane key-press flash bar lights up in the lane color on every keypress. New Beat grid toggle, Speed slider (0.7x to 1.0x with pitch-preserving time-stretching), Square notes toggle, lane color bars in the legend, bolder/spaced-out controls hotkeys. Hit detection now compares against the live playback position so well-timed keypresses correctly register. Mouse wheel scroll locked over the playfield; hit line moved up for visibility. |
+| **v4.2.4** | MIDI Editor: new V hotkey lets you drag notes freely in both directions at once -- left/right moves time, up/down moves between lanes. V+RightMouse locks motion to vertical-only. Multi-select V-drag preserves the relative vertical pattern. New "Show even when snap off" toggle keeps the yellow guide line visible during drags. Right-click during an active drag is now swallowed by the canvas so the V+L+R lock gesture cannot accidentally delete notes or open menus. |
+| **v4.2.3** | Track Preview now includes a keyboard-only Practice subtab with drum-style controls, hit/miss feedback, streak and accuracy tracking, and input latency adjustment. Practice Mode is visual only and does not edit MIDI files or add external MIDI device support. |
+| **v4.2.2** | MIDI Editor: kicks are now selectable only from the Kick lane (clicks landing near a kick line in another lane no longer steal selection from the intended note). Uniform Colored Notes color darkened from near-white to a readable medium gray. |
+| **v4.2.1** | Curated ground-truth validation now uses a manifest, so cleaned reference MIDIs can be added without editing code. Added standalone curated MIDI QA checks and per-track Markdown validation reports for detector reference work. |
+| **v4.2.0** | UI polish pass: buttons gained subtle borders, raised/pressed states, clearer hover feedback, and neon loading bars were retuned with a cleaner trough, softer glow, tighter dots, and smoother comet trail. |
 | **v4.1.9** | Audio to MIDI cleanup logs clarified, Review Issues flam wording updated to distinguish editor softening from generated-flam removal, and stale one-off debug/sweep scripts marked so future detector work uses the current validation path. |
 | **v4.1.8** | Optional `Requirements\` folder support for helper files and downloaded models. Audio to MIDI crash/hi-hat overlap cleanup and generated-flam removal default ON. Stem Splitter sends lossless detector FLACs to Audio to MIDI. |
 | **v4.1.5** | Detection Troubleshooter "Flag in MIDI Editor" per problem -- flagged notes shown with orange outline, jumps to MIDI Editor. Flag workflow closed: right-click flagged note to clear it, Next Flag button to step through all flags, Clear Flags button, live flag counter. Re-run ML and Review Issues tooltips clarified (Troubleshooter = fix settings, Review Issues = clean up result). MIDI Editor redraws viewport-culled + debounced -- large files dramatically faster. Accent notes now hot pink outline. Misclassification outline yellow (lime on Ride). "Show notes as icons" defaults OFF. Header logo PIL LANCZOS. |
@@ -445,6 +446,5 @@ Watch your chart fall exactly as it will appear in Paradiddle, synced to your au
 
 ---
 
-*Created by Micah P.G. -- ParaKit v4.1.9 -- For the Paradiddle & charting community*
-
+*Created by Micah P.G. -- ParaKit v4.2.6 -- For the Paradiddle & Clone Hero Community*
 
