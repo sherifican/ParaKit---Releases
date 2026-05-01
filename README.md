@@ -9,7 +9,7 @@ google drive is a placeholder text file for now, v3.5.1 is the limewire link
 
 I am aware that there are much better and longer standing tools for Clone Hero specifically, I just thought it would be nice to add the option for dual exports. 
 
-> ⬇️ **DOWNLOAD:** [Google Drive](https://drive.google.com/drive/folders/19x5tjhjzyfij_OkFZEoSsFJpwrg0YNKV)
+> ⬇️ **DOWNLOAD:** 
 > Alt: https://limewire.com/d/svTK9#fqZoG5vUjc
 
 > **v3.5+ ships with all requirements included in the main .zip download** -- no separate installs needed.
