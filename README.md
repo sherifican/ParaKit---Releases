@@ -1,6 +1,6 @@
 *NOTE -- v4.0+ is still being developed and will include MASSIVE improvements to the Audio → MIDI auto detector as well as major UI clean up, more Q.O.L. features, and more*  
 
-*most recent update this README was on: 5/6/26*
+*most recent update for this README was on: 5/6/26*
 
 THE DOWNLOAD LINK IS FOR v3.5.1 to be clear! v4.0+ is coming soon, 
 
