@@ -1,10 +1,13 @@
 *NOTE -- v4.0+ is still being developed and will include MASSIVE improvements to the Audio → MIDI auto detector as well as major UI clean up, more Q.O.L. features, and more*
 
-THE DOWNLOAD LINK IS FOR v3.5.1 to be clear! v4.0+ is coming soon
+THE DOWNLOAD LINK IS FOR v3.5.1 to be clear! v4.0+ is coming soon, 
+
+I am posting progress of the development on here via the readmes. I expect to release the current build very soon. I can't give an exact date,
+I want to make sure I deliver on the quality increase that I've mentioned. So I expect sometime on or by May 10th or 11th 2026.
 
 google drive is a placeholder text file for now, v3.5.1 is the limewire link
 
-# ParaKit for Paradiddle / Paradiddle VR w/Clone Hero Export Option -- Custom Song Creator & All-in-One Drum Chart Tool — v4.2.6 
+# ParaKit for Paradiddle / Paradiddle VR w/Clone Hero Export Option -- Custom Song Creator & All-in-One Drum Chart Tool — v4.3.25 
 *App is a work in progress — updates released as frequently as possible. Thank you for your patience.* 
 
 I've updated the theme in v4.0+ to match the PD colors, but I wanna be clear that this app is not officially related to Paradiddle in any way, this is a community made app
@@ -49,7 +52,7 @@ If you're new to charting, or find dedicated audio/MIDI software difficult, conf
 | 8 | YouTube -> FLAC | Download YouTube audio as lossless FLAC |
 | 9 | **Asset Manager** | Metadata, album art, preview clips |
 | 10 | Song Tester | Verify BPM and sync |
-| 11 | **Track Preview & Mini-Game** | Watch chart as falling notes or play your track using your keyboard as MIDI inputs to test your song's timing and feel |
+| 11 | **Track Preview** | Watch chart as falling notes |
 | 12 | Quick Start & FAQ | Built-in guide and troubleshooting |
 
 ---
@@ -210,7 +213,7 @@ Separates a **drums-only stem** into 4 individual components: **Kick, Snare, Cym
 
 ## Audio -> MIDI -- Detection Engine
 
-ParaKit v4.0 added an AI-powered drum detection engine based on the **ADTOF** neural network -- trained on rhythm game chart data and optimized for drum transcription accuracy.
+ParaKit v4.0 added an AI-powered drum detection engine based on the **ADTOF** neural network -- trained on rhythm game chart data and optimized for drum transcription accuracy. v4.3 adds an optional **Enhanced Detection** path for cymbals that significantly improves crash recall on tricky material (fast metal, sparse intros, dense fills).
 
 | Mode | Description |
 |------|-------------|
@@ -218,18 +221,31 @@ ParaKit v4.0 added an AI-powered drum detection engine based on the **ADTOF** ne
 | **ML / ONNX** | AI detection. Significantly more accurate on kick, snare, hi-hat. Model downloads automatically (~1.7 MB, one-time). |
 | **Hybrid** *(recommended)* | Runs ML + Spectral in parallel and merges results using ML timing preferred with spectral cross-confirmation. Best overall accuracy. |
 
+**Enhanced Detection toggle (v4.3.20+) -- optional cymbal upgrade:**
+
+A separate cymbal-specialist model can be enabled for crash detection. On edge-case material -- very fast metal, very slow ballads, sparse intros, dense crash sections -- this raised combined-cymbals detection accuracy by roughly 3x in internal testing. Also adds a 300 ms cooldown (v4.3.23) that prevents one big crash from registering as several closely-spaced hits when the decay tail is long.
+
+| Toggle state | What you get |
+|--------------|--------------|
+| OFF *(default)* | Standard ADTOF cymbal detection. Faster, simpler. |
+| ON | Enhanced cymbal separator + crash cooldown. ~8 sec extra per track. First time you turn it on, a one-time ~110 MB model downloads. |
+
+> **Heads up on rides:** while Enhanced Detection is on, ride hits aren't auto-detected -- the cymbal model groups all cymbals together and routes them to the Crash lane. If a hit should be a ride, switch it in the MIDI Editor (drag in Reclassify mode, or right-click for a lane picker). The built-in detector still handles ride when the toggle is off. A separate ride-detection improvement is researched for a future release.
+
 **Recommended workflow:**
 1. Run Stem Splitter -> get a drums-only stem
 2. Use that stem as input for Audio -> MIDI
 3. Select **Hybrid** as the Detection Engine
-4. Review and clean up in the MIDI Editor
+4. *(Optional)* Enable **Enhanced Detection** for tracks with prominent or unusual crash work
+5. Review and clean up in the MIDI Editor
 
-Audio to MIDI now auto-cleans obvious crash/hi-hat overlaps and removes detector-generated snare/tom flams before writing the MIDI. Both cleanup options remain toggleable in advanced settings.
+Audio to MIDI auto-cleans obvious crash/hi-hat overlaps and removes detector-generated snare/tom flams before writing the MIDI. Both cleanup options remain toggleable in advanced settings.
 
 **Known limitations:**
 - The ML model combines crash and ride into one cymbal class. Ride hits land in the Crash lane -- use Reclassify to move them. Timestamps are already correct.
 - Tom classification is improved in Hybrid but the floor/mid/high split may need manual correction.
 - Open and closed hi-hat are not distinguished. Set velocity below 40 on hi-hat notes to indicate open hits.
+- v4.3.23 added a ride-toggle gating fix: turning the ride toggle OFF now correctly suppresses all phantom ride emissions (previously a small number could leak through the cymbal resolver on full-mix audio with bright cymbals).
 
 ### Detection Troubleshooter *(Help Tab)*
 
@@ -426,7 +442,26 @@ Watch your chart fall exactly as it will appear in Paradiddle, synced to your au
 
 | Version | Summary |
 |---------|---------|
-| **v4.2.6** | Song Creator: new "Use album art from audio file metadata" toggle. Auto-extracts embedded cover art from the loaded Song Audio file (FLAC, MP3, OGG Vorbis, M4A, MP4), center-crops to 512x512, and uses it as the chart's cover image. WAV and audio with no embedded art show a clear warning. Cover Image row locks while the toggle is on. Toggle state persists across sessions. Front-cover preference applied for all four formats. |
+| **v4.3.25** | Internal cleanup: relocated an experimental hi-hat detection feature from the wrong position in the processing pipeline to the correct position. Still hidden from the UI while we test whether it now actually helps. Users will see no behavior change in this version. |
+| **v4.3.24** | An experimental hi-hat detection toggle from internal testing has been temporarily hidden while we validate it on more audio types. It will return once we've confirmed it actually helps in real workflows, not just on test material. |
+| **v4.3.23** | Smoother crash detection -- Enhanced Detection now waits a beat before counting another crash, so a single big cymbal stops registering as several closely-spaced hits. Especially helpful on dense, fast tracks. Ride-toggle bug fixed -- if you turned the Ride toggle off but still saw a few ride notes appear (especially on full-mix songs with bright cymbals), those phantom rides are now correctly routed back to crash. |
+| **v4.3.22** | MIDI Editor: reactive-note flashes now stay visible a touch longer after the playhead crosses each note. The previous 40 ms window sometimes felt like the flash appeared late and ended quickly, especially when the timing landed against the playback update rate just so. The flash window is now 50 ms -- still trailing-only (no flash before the playhead reaches the note), just a bit more visible time on the way out. |
+| **v4.3.21** | MIDI Editor playback is smoother. The playhead now updates twice as often during playback (40 frames per second instead of 20), so it glides instead of stepping along the timeline. Reactive-note flashes no longer skip notes -- before, about 30-40% of notes wouldn't light up as the playhead crossed them, especially on busy sections. Now every note the playhead passes flashes exactly once, regardless of how fast playback is updating. Also cleaned up some leftover debug messages that were printing to the console during playback. |
+| **v4.3.20** | Crash detection upgraded. Enhanced Detection now uses a different cymbal separator that finds many more crashes on tricky material -- fast songs, slow songs, sparse songs, dense songs. You'll spend less time fixing missed crashes in the MIDI Editor. Heads up on rides: while Enhanced Detection is on, ride hits aren't auto-detected -- if a hit should be a ride, switch it in the MIDI Editor (drag in Reclassify mode, or right-click for a lane picker). The built-in detector still handles ride when the toggle is off. Conversion runs faster too -- the new separator is about 7x quicker on CPU than the old one. First time you turn the toggle on, ParaKit downloads a one-time ~110 MB model file. After that it's cached and starts instantly. |
+| **v4.3.19** | MIDI Editor: notes no longer flash white before the playhead reaches them. The reactive-note highlight used to start about 40 ms early and end 40 ms late, which was easy to spot at high zoom and could make precise edits feel a hair off. Now the highlight begins exactly when the playhead crosses the note time and fades 40 ms after -- no pre-trigger. Useful when you're zoomed in and lining up hits to the millisecond. *(Further refined in v4.3.21 and v4.3.22.)* |
+| **v4.3.18** | Audio -> MIDI tab layout: column-balance follow-up to v4.3.17. The Enhanced Detection panel now sits in the wide left column with the rest of the detection settings, restoring the wide-left / narrow-right layout from earlier versions. The right column is no longer squashed by Enhanced Detection's longer status text. Existing button-row packing fixes from v4.3.17 remain intact. |
+| **v4.3.17** | Audio -> MIDI tab: comprehensive layout restoration. Several v4.3 dev changes had drifted the tab's layout away from the v4.2 baseline. Browse / Clear / Check / Get Model / Reset rows are restored, the active-engine label is no longer width-capped, and the right column is properly filled. Detailed setup and troubleshooting guidance stays in the Help tab. |
+| **v4.3.15** | Audio -> MIDI Detection Engine layout regression fix. Browse / Clear / Check / Get Model / Reset buttons render correctly again -- a packing bug had let the input Entry consume all horizontal space ahead of the LEFT-side buttons. The "active engine" status label is no longer truncated. Verbose Detection Engine helper text consolidated to one-liners with the detailed how-to content moved to the Help tab. |
+| **v4.3.13** | Restoration of v4.3.x changes lost during a build incident: album art now displays in-game on Paradiddle charts again (cover files save as `album.<ext>` next to the .rlrr); Preview/Practice Track tab name shows correctly in the editor; speed slider on Preview/Practice Track applies live during playback (no need to stop and restart); note size sliders stay capped at the new tighter range (0.3x-1.0x, default 0.3x); Practice mode hit feedback shows just the PERFECT/GOOD/MISS label below the hit line -- no more flash rectangle around the lane. |
+| **v4.3.12** | V-key vertical-drag removed from the MIDI Editor after persistent reliability issues. Reclassify mode already provides the same lane-change functionality and is the recommended path going forward. The status bar message now reads "Reclassify toggle: drag to change lane." Help tab updated with Reclassify-mode guidance. |
+| **v4.3.11** | Practice game hit feedback cleanup -- the colored flash rectangle around the hit lane has been removed, and the PERFECT / GOOD / MISS label moved to just below the hit line for clearer feedback. |
+| **v4.2.12** | All option sliders now show faint tick marks below the track so common settings are easier to dial in from memory (ticks every 10 px). Slider knobs are now purple across the app, matching the loading bar and button accent color instead of the default blue. Applies to all sliders on Audio-to-MIDI, MIDI Editor, Song Creator, and Track Preview tabs. |
+| **v4.2.11** | MIDI Editor: Chart Start / Chart End markers. A green dashed line marks the first note in the loaded chart; an orange dashed line marks the last note. Both are labeled in the timeline header. On the waveform strip, audio before Chart Start and after Chart End is darkened so you can see at a glance which parts of the audio are not covered by the chart. Prevents users from mistakenly shifting notes to align with pre-roll audio, which would break in-game sync. Help tab updated with Chart Start / Chart End explanation. |
+| **v4.2.10** | MIDI Editor: hotkeys (1-8, Ctrl+Z/C/V, Delete, etc.) now resume working after typing in any text field — clicks on the editor canvas, waveform strip, or velocity lane reclaim focus automatically. Audio output latency slider (0-200 ms, auto-estimated per OS at startup: Windows ~42 ms / macOS ~22 ms / Linux ~37 ms) compensates for the gap between when audio playback starts and when sound reaches the speakers, so the playhead stays in sync with what you hear. T-tap and saved-on-pause positions also use the corrected audio-true time. |
+| **v4.2.9** | MIDI Editor: Grid resolution toggle added to Display & Snap panel. Choose 1/4, 1/8, 1/16, or 1/32 note subdivisions. Bar lines stay full brightness, beat lines stay normal, and subdivision lines are drawn progressively lighter — in 1/32 mode three shading levels appear (8th, 16th, 32nd). Switching the resolution never moves notes (positions are stored as absolute time and are unaffected by the visual grid). Help tab updated with grid resolution documentation. |
+| **v4.2.8** | Song Creator & Create Multiple Songs: "➕ Add more stem options" button replaces the .ogg reminder. Adds up to 4 extra audio tracks per song; each has a checkbox to mark it as Song audio (checked) or Drum audio (unchecked, default). Extra stems are added to the .rlrr track lists and copied to the output folder automatically. Song Creator: "✂ Auto-clip first 15s of Song Audio as preview" checkbox auto-trims a 15-second preview.ogg at convert time — disables the Preview Clip field while active. MIDI Extractor: output directory selector added. Top menu bar: MIDI Extractor added to Audio → MIDI and Tools menus. Help tab: Top Menu Bar section removed; Extra Stems + Auto Preview Clip documented in Song Creator section. |
+| **v4.2.7** | Audio → MIDI: MIDI Extractor panel added. Converts Paradiddle chart files (.rlrr) to MIDI without re-recording. Single file or batch folder mode, per-difficulty filter, pre-extraction preview, and metadata editing (title / artist / creator). Reveal via "▾ MIDI Extractor (hidden)" in the Advanced / Debug section of the Audio → MIDI tab. Requires the "Extractor Mini App" folder alongside ParaKit.exe. |
+| **v4.2.6** | Song Creator: new "Use album art from audio file metadata" toggle. Auto-extracts embedded cover art from the loaded Song Audio file (FLAC, MP3, OGG Vorbis, M4A, MP4), center-crops to 512x512, and uses it as the chart's cover image. WAV and audio with no embedded art show a clear warning. Cover Image row locks while the toggle is on. Toggle state persists across sessions. Front-cover preference applied for all four formats. Asset Manager Auto-Fetch "Apply to Song Creator" split into two buttons: "Apply Metadata" (Title + Artist) and "Apply art from thumbnail" (Cover Art only) — each independent. Practice Mini-Game: keypresses outside the ±75 ms hit window no longer count as misses or break the streak; only an unhit note passing the hit line still counts as a miss. MIDI Editor drag performance: snap-target search converted from O(N) linear scan to O(log N) bisect lookup, and marker drags now share the 16 ms redraw debounce — large files no longer stutter while dragging notes or markers. |
 | **v4.2.5** | Track Preview tab renamed to Practice Mini-Game. Canvases grouped on the left for a more square playfield. New gear button opens a Controls remapping dialog. Per-lane key-press flash bar lights up in the lane color on every keypress. New Beat grid toggle, Speed slider (0.7x to 1.0x with pitch-preserving time-stretching), Square notes toggle, lane color bars in the legend, bolder/spaced-out controls hotkeys. Hit detection now compares against the live playback position so well-timed keypresses correctly register. Mouse wheel scroll locked over the playfield; hit line moved up for visibility. |
 | **v4.2.4** | MIDI Editor: new V hotkey lets you drag notes freely in both directions at once -- left/right moves time, up/down moves between lanes. V+RightMouse locks motion to vertical-only. Multi-select V-drag preserves the relative vertical pattern. New "Show even when snap off" toggle keeps the yellow guide line visible during drags. Right-click during an active drag is now swallowed by the canvas so the V+L+R lock gesture cannot accidentally delete notes or open menus. |
 | **v4.2.3** | Track Preview now includes a keyboard-only Practice subtab with drum-style controls, hit/miss feedback, streak and accuracy tracking, and input latency adjustment. Practice Mode is visual only and does not edit MIDI files or add external MIDI device support. |
@@ -453,5 +488,5 @@ Watch your chart fall exactly as it will appear in Paradiddle, synced to your au
 
 ---
 
-*Created by Micah P.G. -- ParaKit v4.2.6 -- For the Paradiddle & Clone Hero Community*
+*Created by Micah P.G. -- ParaKit v4.3.25 (dev preview) -- For the Paradiddle & Clone Hero Community*
 
