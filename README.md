@@ -5,7 +5,7 @@
 THE DOWNLOAD LINK IS FOR v3.5.1 to be clear! v4.0+ is coming soon, 
 
 I am posting progress of the development on here via the readmes. I expect to release the current build very soon. I can't give an exact date,
-I want to make sure I deliver on the quality increase that I've mentioned. So I expect sometime on or by May 10th or 11th 2026.
+I want to make sure I deliver on the quality increase that I've mentioned. So I expect sometime in the week of May 11th 2026.
 
 google drive is a placeholder text file for now, v3.5.1 is the limewire link
 
