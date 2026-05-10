@@ -1,25 +1,12 @@
-*NOTE -- v4.0+ is still being developed and will include MASSIVE improvements to the Audio → MIDI auto detector as well as major UI clean up, more Q.O.L. features, and more* 
+# ParaKit--Paradiddle PC / VR w/Clone Hero Export Support
 
-CHECK THE BOTTOM OF THE PAGE FOR THE CHANGELOG/PROGRESS
+### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.9
 
-*most recent update for this README was on: 5/6/26*
+*NOTE -- v4.0+ has delivered MASSIVE improvements to the Audio → MIDI auto detector (including the new Neural Stem Isolation in v4.4.4), major UI cleanup, and many quality-of-life features. See the Changelog at the bottom for what has landed since v3.5.1. The v4.5.0 public release is on the way.*
 
-THE DOWNLOAD LINK IS FOR v3.5.1 to be clear! v4.0+ is coming soon, 
+> **DOWNLOAD:** CURRENT RELEASE (v3.5.1): [https://limewire.com/d/svTK9#fqZoG5vUjc]
 
-I am posting progress of the development on here via the readmes. I expect to release the current build very soon. I can't give an exact date,
-I want to make sure I deliver on the quality increase that I've mentioned. So I expect sometime in the week of May 11th 2026.
-
-google drive is a placeholder text file for now, v3.5.1 is the limewire link
-
-# ParaKit -- Paradiddle (PC/VR) w/Clone Hero Export Option -- Custom Song Creator & All-in-One Drum Chart Tool — v4.3.25 
-*App is a work in progress — updates released as frequently as possible. Thank you for your patience.* 
-
-I've updated the theme in v4.0+ to match the PD colors, but I wanna be clear that this app is not officially related to Paradiddle in any way, this is a community made app
-
-I am aware that there are much better and longer standing tools for Clone Hero specifically, I just thought it would be nice to add the option for dual exports. 
-
-> ⬇️ **DOWNLOAD:** 
-> Alt: https://limewire.com/d/svTK9#fqZoG5vUjc
+*v4.5 Release planned for week of May 11th, 2026 README last updated on 5/9/26*
 
 > **v3.5+ ships with all requirements included in the main .zip download** -- no separate installs needed.
 
@@ -217,7 +204,7 @@ Separates a **drums-only stem** into 4 individual components: **Kick, Snare, Cym
 
 ## Audio -> MIDI -- Detection Engine
 
-ParaKit v4.0 added an AI-powered drum detection engine based on the **ADTOF** neural network -- trained on rhythm game chart data and optimized for drum transcription accuracy. v4.3 adds an optional **Enhanced Detection** path for cymbals that significantly improves crash recall on tricky material (fast metal, sparse intros, dense fills).
+ParaKit v4.0 added an AI-powered drum detection engine based on the **ADTOF** neural network -- trained on rhythm game chart data and optimized for drum transcription accuracy.
 
 | Mode | Description |
 |------|-------------|
@@ -225,31 +212,42 @@ ParaKit v4.0 added an AI-powered drum detection engine based on the **ADTOF** ne
 | **ML / ONNX** | AI detection. Significantly more accurate on kick, snare, hi-hat. Model downloads automatically (~1.7 MB, one-time). |
 | **Hybrid** *(recommended)* | Runs ML + Spectral in parallel and merges results using ML timing preferred with spectral cross-confirmation. Best overall accuracy. |
 
-**Enhanced Detection toggle (v4.3.20+) -- optional cymbal upgrade:**
-
-A separate cymbal-specialist model can be enabled for crash detection. On edge-case material -- very fast metal, very slow ballads, sparse intros, dense crash sections -- this raised combined-cymbals detection accuracy by roughly 3x in internal testing. Also adds a 300 ms cooldown (v4.3.23) that prevents one big crash from registering as several closely-spaced hits when the decay tail is long.
-
-| Toggle state | What you get |
-|--------------|--------------|
-| OFF *(default)* | Standard ADTOF cymbal detection. Faster, simpler. |
-| ON | Enhanced cymbal separator + crash cooldown. ~8 sec extra per track. First time you turn it on, a one-time ~110 MB model downloads. |
-
-> **Heads up on rides:** while Enhanced Detection is on, ride hits aren't auto-detected -- the cymbal model groups all cymbals together and routes them to the Crash lane. If a hit should be a ride, switch it in the MIDI Editor (drag in Reclassify mode, or right-click for a lane picker). The built-in detector still handles ride when the toggle is off. A separate ride-detection improvement is researched for a future release.
-
 **Recommended workflow:**
 1. Run Stem Splitter -> get a drums-only stem
 2. Use that stem as input for Audio -> MIDI
-3. Select **Hybrid** as the Detection Engine
-4. *(Optional)* Enable **Enhanced Detection** for tracks with prominent or unusual crash work
+3. Select **Hybrid** as the Detection Engine *(works best on both drums-only stems and full mixes since v4.3.30)*
+4. *(Optional)* Turn on **Neural Stem Isolation** for an extra AI cleanup layer on tricky tracks -- see next section
 5. Review and clean up in the MIDI Editor
 
-Audio to MIDI auto-cleans obvious crash/hi-hat overlaps and removes detector-generated snare/tom flams before writing the MIDI. Both cleanup options remain toggleable in advanced settings.
+Audio to MIDI now auto-cleans obvious crash/hi-hat overlaps and removes detector-generated snare/tom flams before writing the MIDI. Both cleanup options remain toggleable in advanced settings.
 
 **Known limitations:**
 - The ML model combines crash and ride into one cymbal class. Ride hits land in the Crash lane -- use Reclassify to move them. Timestamps are already correct.
 - Tom classification is improved in Hybrid but the floor/mid/high split may need manual correction.
 - Open and closed hi-hat are not distinguished. Set velocity below 40 on hi-hat notes to indicate open hits.
-- v4.3.23 added a ride-toggle gating fix: turning the ride toggle OFF now correctly suppresses all phantom ride emissions (previously a small number could leak through the cymbal resolver on full-mix audio with bright cymbals).
+
+---
+
+## Audio -> MIDI -- Neural Stem Isolation *(v4.4.4+, experimental, opt-in)*
+
+A new section in the **Audio -> MIDI Settings** panel added in v4.4.4. When turned on, ParaKit runs your input audio through an AI drum-stem splitter (**Jarredou MDX23C 6-stem**) before detection runs, cleaning up bleed between kick, snare, hi-hat, toms, and cymbals. Detection then runs on the cleaned audio.
+
+| Mode | Description |
+|------|-------------|
+| **Off** *(default)* | Detection runs directly on your input audio. No extra processing. |
+| **Jarredou MDX23C 6-stem** | AI splitter pre-cleans the audio. Adds ~30-60s per song on CPU. Improves snare / kick / crash detection on tricky tracks. |
+
+**When to use it:** songs with lots of bleed between drum components -- especially metal tracks where kick and crash hit at the same time, or tracks where the hi-hat sits low in the mix and gets confused with cymbals.
+
+**First-time setup:** flip the toggle to Jarredou and click **Download model** -- a one-time ~417 MB download. The model is cached to your user app-data folder, not bundled with the release zip. Subsequent runs reuse the cached model.
+
+**Cost / caveats:**
+- CPU-only inference in this version. GPU support coming when PyTorch catches up to RTX 50-series.
+- Adds ~30-60s per song to detection time.
+- The ride lane still uses default detection (Jarredou's ride stem is not yet routed through the detector).
+- If anything goes wrong with the splitter at run time, ParaKit automatically falls back to default detection on the original audio so your conversion still finishes.
+
+**Internal benchmark (5-track metal corpus):** Neural Stem Isolation lifted snare F1 by +0.24, kick by +0.16, and crash by +0.13 over default detection.
 
 ### Detection Troubleshooter *(Help Tab)*
 
@@ -422,6 +420,8 @@ Watch your chart fall exactly as it will appear in Paradiddle, synced to your au
 | App crashed silently | Check `parakit_crash.txt` next to `ParaKit.exe` |
 | Clone Hero cymbals wrong | Verify `pro_drums = True` is in `song.ini` (ParaKit writes this automatically) |
 | ML model not found | Click Get Model in the Detection Engine section, or place `parakit_drum_model.onnx` next to `ParaKit.exe` / in `Requirements\` |
+| Neural Stem Isolation log says "Separator failed" | v4.4.4-v4.4.7 had a bug where the splitter threw a NameError; fixed in v4.4.8. ParaKit cleanly falls back to default detection so your conversion still finishes. Re-download the model only if the log says hash-mismatch. |
+| Hybrid feels worse than Spectral on a drums-only stem | Old v4.0-era guidance said Spectral was better for drums-only stems. v4.3.30+ data shows Hybrid wins decisively (snare F1 0.12 → 0.65 on metal). The in-app guidance was corrected in v4.4.9. Use Hybrid. |
 
 ---
 
@@ -446,19 +446,21 @@ Watch your chart fall exactly as it will appear in Paradiddle, synced to your au
 
 | Version | Summary |
 |---------|---------|
-| **v4.3.25** | Internal cleanup: relocated an experimental hi-hat detection feature from the wrong position in the processing pipeline to the correct position. Still testing its pros vs cons
-| **v4.3.24** | An experimental hi-hat detection toggle from internal testing has been temporarily hidden while I validate it on more audio types.
-| **v4.3.23** | Smoother crash detection -- Enhanced Detection now waits a beat before counting another crash, so a single big cymbal stops registering as several closely-spaced hits. Especially helpful on dense, fast tracks. Ride-toggle bug fixed -- if you turned the Ride toggle off but still saw a few ride notes appear (especially on full-mix songs with bright cymbals), those phantom rides are now correctly routed back to crash. |
-| **v4.3.22** | MIDI Editor: reactive-note flashes now stay visible a touch longer after the playhead crosses each note. The previous 40 ms window sometimes felt like the flash appeared late and ended quickly, especially when the timing landed against the playback update rate. The flash window is now 50 ms -- still trailing-only (no flash before the playhead reaches the note), just a bit more visible time on the way out. |
-| **v4.3.21** | MIDI Editor playback is smoother. The playhead now updates twice as often during playback (40 frames per second instead of 20), so it glides instead of stepping along the timeline. Reactive-note flashes no longer skip notes -- before, about 30-40% of notes wouldn't light up as the playhead crossed them, especially on busy sections. Now every note the playhead passes flashes exactly once, regardless of how fast playback is updating. Also cleaned up some leftover debug messages that were printing to the console during playback. |
-| **v4.3.20** | Crash detection upgraded. Enhanced Detection now uses a different cymbal separator that finds many more crashes on tricky material -- fast songs, slow songs, sparse songs, dense songs. You'll spend less time fixing missed crashes in the MIDI Editor. Heads up on rides: while Enhanced Detection is on, ride hits aren't auto-detected -- if a hit should be a ride, switch it in the MIDI Editor (drag in Reclassify mode, or right-click for a lane picker). The built-in detector still handles ride when the toggle is off. Conversion runs faster too -- the new separator is about 7x quicker on CPU than the old one. First time you turn the toggle on, ParaKit downloads a one-time ~110 MB model file. After that it's cached and starts instantly. |
-| **v4.3.19** | MIDI Editor: notes no longer flash white before the playhead reaches them. The reactive-note highlight used to start about 40 ms early and end 40 ms late, which was easy to spot at high zoom and could make precise edits feel a hair off. Now the highlight begins exactly when the playhead crosses the note time and fades 40 ms after -- no pre-trigger. Useful when you're zoomed in and lining up hits to the millisecond. *(Further refined in v4.3.21 and v4.3.22.)* |
-| **v4.3.18** | Audio -> MIDI tab layout: column-balance follow-up to v4.3.17. The Enhanced Detection panel now sits in the wide left column with the rest of the detection settings, restoring the wide-left / narrow-right layout from earlier versions. The right column is no longer squashed by Enhanced Detection's longer status text. Existing button-row packing fixes from v4.3.17 remain intact. |
-| **v4.3.17** | Audio -> MIDI tab: comprehensive layout restoration. Several v4.3 dev changes had drifted the tab's layout away from the v4.2 baseline. Browse / Clear / Check / Get Model / Reset rows are restored, the active-engine label is no longer width-capped, and the right column is properly filled. Detailed setup and troubleshooting guidance stays in the Help tab. |
-| **v4.3.15** | Audio -> MIDI Detection Engine layout regression fix. Browse / Clear / Check / Get Model / Reset buttons render correctly again -- a packing bug had let the input Entry consume all horizontal space ahead of the LEFT-side buttons. The "active engine" status label is no longer truncated. Verbose Detection Engine helper text consolidated to one-liners with the detailed how-to content moved to the Help tab. |
-| **v4.3.13** | Restoration of v4.3.x changes lost during a build incident: album art now displays in-game on Paradiddle charts again (cover files save as `album.<ext>` next to the .rlrr); Preview/Practice Track tab name shows correctly in the editor; speed slider on Preview/Practice Track applies live during playback (no need to stop and restart); note size sliders stay capped at the new tighter range (0.3x-1.0x, default 0.3x); Practice mode hit feedback shows just the PERFECT/GOOD/MISS label below the hit line -- no more flash rectangle around the lane. |
-| **v4.3.12** | V-key vertical-drag removed from the MIDI Editor after persistent reliability issues. Reclassify mode already provides the same lane-change functionality and is the recommended path going forward. The status bar message now reads "Reclassify toggle: drag to change lane." Help tab updated with Reclassify-mode guidance. |
-| **v4.3.11** | Practice game hit feedback cleanup -- the colored flash rectangle around the hit lane has been removed, and the PERFECT / GOOD / MISS label moved to just below the hit line for clearer feedback. |
+| **v4.4.9** | Audio → MIDI Detection Engine guidance copy corrected. The note under the Spectral / ML / Hybrid radios used to say Spectral was the better choice for drums-only stems. That was outdated v4.0-era advice. Internal testing on a metal drums-only corpus shows Hybrid wins decisively: snare F1 0.12 → 0.65, hi-hat 0.00 → 0.27, crash 0.16 → 0.23. New note now recommends Hybrid for both full mixes and drums-only stems. No detection logic changed; only the guidance text. |
+| **v4.4.8** | Neural Stem Isolation actually works now. Since v4.4.4 the new toggle was silently failing every time at the start of conversion (NameError on a missing `import time` inside the v4.4.4 separator-slot wrap), so ParaKit fell back to default detection on the original audio. Conversions still completed but you weren't getting the AI-cleaned drums. Fix: added the missing local import. Surfaced by smoke test 2026-05-09. |
+| **v4.4.7** | Loading bars added to the **Audio to .ogg Converter** and **Create Multiple Songs** tabs. Both tabs now show ParaKit's animated purple progress bar while a conversion is running, so you can tell at a glance the app is still working instead of frozen. Covers both the 3-slot batch section and the Folder Batch section underneath it. |
+| **v4.4.6** | Audio → MIDI tab: "Setting Snapshots" panel renamed to "Settings Profiles". Same feature -- save, load, and delete your favorite detector configurations under a name. Just a clearer label for what the panel does. |
+| **v4.4.5** | Detection Engine "↓ Get Model" button is fixed. Previously the button tried to download the AI drum model from the wrong web address, so it always failed with "Download failed from all sources." Button now reaches the correct GitHub release on the first try. Also: Get / Download Model buttons now gray out automatically once the model is on your computer (applies to the Detection Engine model, the Stem Splitter DrumSep model, and the v4.4.4 Neural Stem Isolation model). |
+| **v4.4.4** | **Neural Stem Isolation (experimental, opt-in).** New section in Audio → MIDI Settings. Off by default; flip the radio to Jarredou MDX23C and ParaKit runs your audio through an AI drum-stem splitter before detection, cleaning up bleed between kick / snare / hi-hat / toms / cymbals. Detection then runs on the cleaned audio. First-time setup downloads a one-time ~417 MB model to your user app-data folder. Adds ~30-60s per song on CPU. Internal testing on a 5-track metal corpus measured snare F1 +0.24, kick +0.16, crash +0.13 over default detection. Architecturally the first plug-in for ParaKit's new separator-slot system -- future research-validated drum splitters can plug into the same slot. |
+| **v4.4.3** | Kick detection cleanup. The detector sometimes fired multiple kick onsets very close together (under 30ms) for what was actually a single kick hit, leaving cluster-style duplicate notes to clean up in the editor. Kick dedup window widened to 40ms (up from 30ms in spectral / 20ms in hybrid). Validated against a 5-track metal corpus: detection accuracy improves on every track, and legitimate fast double-kicks at metal tempos are not affected. |
+| **v4.4.1 - v4.4.2** | YouTube → FLAC tab gained an optional custom-filename override (checkbox + text field with Windows-illegal-character sanitization and a live preview). Enhanced Detection became selectable: Off, Crash only, Toms only, or Crash + Toms; existing v4.4.0 ON setting carries over as Crash + Toms. |
+| **v4.4.0** | Enhanced Detection extended from crash-only output to crash + tom output. The toggle that improves cymbal detection on tricky tracks now also helps with tom fills -- big rock and metal tracks with active fills benefit most. Default-OFF; tom-sparse songs should leave it off. |
+| **v4.3.30** | Snare wire-band threshold raised after empirical validation on an 18-track tuning corpus. Default snare detection is now stricter on what counts as a real snare hit, removing roughly 97% of detected false positives across pop / metal / rock / alternative tracks. Funk preset's ghost-note sensitivity is intentionally preserved. |
+| **v4.3.27 - v4.3.29** | UI polish bundle. Note size sliders in MIDI Editor / Preview / Practice replaced with precise +/- button steppers (preserves 0.3x-1.0x range and 0.3x default). MIDI Editor zoom slider removed; existing -/+ zoom became a labeled stepper. Single track / Layered radios stacked vertically to reclaim horizontal space. Scrollbars across the app recolored to ParaKit's purple accent so the thumb is visible against the dark canvas. Snap to grid checkbox visibility fix. What's New panel cleanup -- only the 3 most recent versions visible at top, older versions in a collapsible section. |
+| **v4.3.20 - v4.3.26** | Enhanced Detection cymbal path moved from Jarredou to LarsNet for a permissively-licensed alternative with comparable accuracy. Crash cooldown added to the LarsNet wrapper. Ride-toggle gating fix. Hi-hat adaptive cleaner experiment added then removed after empirical validation showed it was over-filtering real hi-hats on production code path. |
+| **v4.3.21 - v4.3.22** | MIDI Editor smoothness pass: playhead update rate doubled from 20 FPS to 40 FPS, reactive-note flash window loosened from 40ms to 50ms with crossing-detection so notes always flash even at fast tempos / heavy redraws. Stripped leftover debug `[PLAYHEAD-DEBUG]` print statements that v4.3.14 added for diagnostics. |
+| **v4.3.12 - v4.3.19** | V-drag removed from MIDI Editor (replaced by Reclassify mode -- click a note to pick its lane from a list, or drag up/down). Album art save now uses `album.<ext>` filename matching paradb convention. Audio → MIDI Detection Engine layout regression fixed (Browse / ✕ / Check / Get Model / Reset buttons render correctly again). Active engine label no longer truncated. Reactive-note early-trigger bug fixed (asymmetric trailing-only window). Encoding-corruption emergency recovery (v4.3.16 mojibake round-trip). |
+| **v4.3.0 - v4.3.11** | Track Preview tab renamed to Preview/Practice Track. Practice subtab gains pitch-preserving speed slider with live update during playback. Practice game hit feedback cleanup (PERFECT/GOOD/MISS label moved below hit line). Various MIDI Editor stability polish. Preview Audio Trimmer auto-routes preview clip into Song Creator. |
 | **v4.2.12** | All option sliders now show faint tick marks below the track so common settings are easier to dial in from memory (ticks every 10 px). Slider knobs are now purple across the app, matching the loading bar and button accent color instead of the default blue. Applies to all sliders on Audio-to-MIDI, MIDI Editor, Song Creator, and Track Preview tabs. |
 | **v4.2.11** | MIDI Editor: Chart Start / Chart End markers. A green dashed line marks the first note in the loaded chart; an orange dashed line marks the last note. Both are labeled in the timeline header. On the waveform strip, audio before Chart Start and after Chart End is darkened so you can see at a glance which parts of the audio are not covered by the chart. Prevents users from mistakenly shifting notes to align with pre-roll audio, which would break in-game sync. Help tab updated with Chart Start / Chart End explanation. |
 | **v4.2.10** | MIDI Editor: hotkeys (1-8, Ctrl+Z/C/V, Delete, etc.) now resume working after typing in any text field — clicks on the editor canvas, waveform strip, or velocity lane reclaim focus automatically. Audio output latency slider (0-200 ms, auto-estimated per OS at startup: Windows ~42 ms / macOS ~22 ms / Linux ~37 ms) compensates for the gap between when audio playback starts and when sound reaches the speakers, so the playhead stays in sync with what you hear. T-tap and saved-on-pause positions also use the corrected audio-true time. |
@@ -492,5 +494,5 @@ Watch your chart fall exactly as it will appear in Paradiddle, synced to your au
 
 ---
 
-*Created by Micah P.G. -- ParaKit v4.3.25 (dev preview) -- For the Paradiddle & Clone Hero Community*
+*Created by Micah P.G. -- ParaKit v4.4.9 -- For the Paradiddle & Clone Hero Community*
 
