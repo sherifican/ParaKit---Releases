@@ -6,7 +6,8 @@
 
 > **DOWNLOAD:** CURRENT RELEASE (v3.5.1): [https://limewire.com/d/svTK9#fqZoG5vUjc]
 
-*v4.5 Release planned for week of May 11th, 2026 README last updated on 5/9/26*
+*v4.5 Release planned for week of May 11th, 2026 
+README last updated on 5/9/26*
 
 > **v3.5+ ships with all requirements included in the main .zip download** -- no separate installs needed.
 
