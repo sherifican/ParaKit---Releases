@@ -441,7 +441,7 @@ Play through the chart with keyboard controls before exporting -- great for catc
 | Stem Splitter fails | Keep `ffmpeg.exe` / `ffprobe.exe` next to `ParaKit.exe` or in `Requirements\` |
 | Stem Splitter slow | Normal for AMD/Intel and RTX 50-series |
 | YouTube fails | Keep `yt-dlp.exe` next to `ParaKit.exe` or in `Requirements\`; keep Auto-update on |
-| Push to Quest | Sends Paradiddle output directly to a connected Meta Quest via USB |
+| Push to Quest fails | check ADB.exe is next to ParaKit.exe & neccessary settings on your quest are toggled on |
 | App crashed silently | Check `parakit_crash.txt` next to `ParaKit.exe` |
 | Clone Hero cymbals wrong | Verify `pro_drums = True` is in `song.ini` (ParaKit writes this automatically) |
 | ML model not found | Click Get Model in the Detection Engine section, or place `parakit_drum_model.onnx` next to `ParaKit.exe` / in `Requirements\` |
