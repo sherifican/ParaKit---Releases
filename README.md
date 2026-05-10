@@ -45,7 +45,7 @@ If you're new to charting, or find dedicated audio/MIDI software difficult, conf
 | 8 | YouTube -> FLAC | Download YouTube audio as lossless FLAC |
 | 9 | **Asset Manager** | Metadata, album art, preview clips |
 | 10 | Song Tester | Verify BPM and sync |
-| 11 | **Track Preview** | Watch chart as falling notes |
+| 11 | **Preview/Practice Track** | Watch chart as falling notes (Preview) or play it like a rhythm game with keyboard controls (Practice Mini-Game subtab) |
 | 12 | Quick Start & FAQ | Built-in guide and troubleshooting |
 
 ---
@@ -72,9 +72,9 @@ Convert a MusicXML drum chart to 1:1 accurate MIDI. Download `.mxl` from [MuseSc
 
 Clean up the MIDI. Use **Reclassify mode** for wrong instruments -- click a note to pick from a list, or drag it up/down to change lanes in real time. Use **Review Issues** to find likely problems fast. Use **1-8 hotkeys** to place notes while listening. Set dynamics in the **Velocity Lane**.
 
-**STEP 3.5 -> Track Preview (Tab 11)** *(optional but recommended)*
+**STEP 3.5 -> Preview/Practice Track (Tab 11)** *(optional but recommended)*
 
-Watch your chart fall exactly as it will appear in-game, synced to your audio.
+Watch your chart fall exactly as it will appear in-game, synced to your audio. Switch to the **Practice Mini-Game** subtab to play through your chart with keyboard controls before exporting -- great for catching missed hits or weird timing without leaving ParaKit.
 
 **STEP 4 -> Song Tester (Tab 10)**
 
@@ -244,7 +244,7 @@ A new section in the **Audio -> MIDI Settings** panel added in v4.4.4. When turn
 **First-time setup:** flip the toggle to Jarredou and click **Download model** -- a one-time ~417 MB download. The model is cached to your user app-data folder, not bundled with the release zip. Subsequent runs reuse the cached model.
 
 **Cost / caveats:**
-- CPU-only inference in this version. GPU support coming when PyTorch catches up to RTX 50-series. Users with supported GPUs will still have the option for GPU acceleration.
+- CPU-only inference in this version. GPU support coming when PyTorch catches up to RTX 50-series.
 - Adds ~30-60s per song to detection time.
 - The ride lane still uses default detection (Jarredou's ride stem is not yet routed through the detector).
 - If anything goes wrong with the splitter at run time, ParaKit automatically falls back to default detection on the original audio so your conversion still finishes.
@@ -267,16 +267,22 @@ If your result has too many or too few hits of a specific instrument:
 
 | Genre | Notes |
 |-------|-------|
-| Auto | Best starting point for most songs |
-| No Adjustment | Raw defaults |
-| Pop / Pop-Punk & Rock | Kick threshold raised, snare more sensitive |
-| Metal / Hard Rock / Post-Hardcore | Snare detection very sensitive for noisy stems |
+| **Auto** *(default)* | Let the detector decide. Best starting point for most songs. |
+| **No adjustment** | Pure defaults, no overrides. Useful for experimenting. |
+| **Pop / Pop-Punk & Rock** | Kick threshold raised, snare more sensitive, tom filters loosened. |
+| **Metal / Hard Rock / Post-Hardcore** | Snare detection more sensitive for noisy stems with guitar bleed. |
+| **Funk / Soul / R&B** | Snare and kick more sensitive for ghost notes and syncopation, tom filters loosened, kick sub threshold lowered. |
+
+> **Punk & Hardcore was removed.** Lo-fi production, fast irregular tempos, and dense cymbal playing make auto-detection unreliable in that genre regardless of preset. Use Auto or Metal as a starting point and clean up in the editor.
+
+Presets are starting points -- if one gives strange results, try another preset, **No adjustment**, or manual tuning.
 
 **Instrument notes:**
 
-- **Toms** -- unreliable in Spectral, improved in Hybrid. Use Reclassify or add manually. Turn off Snap to Grid for fast fills.
-- **Ride** -- leave detection OFF by default. Reclassify hi-hats/crashes that should be ride.
-- **Kicks** -- ~90% accurate. Too many: raise ML threshold or disable. Too few: lower threshold or add manually.
+- **Toms** -- spectral detection is unreliable on toms; Hybrid is better. Enhanced Detection (v4.4.0+) with Toms or Crash + Toms turned on adds LarsNet stem-based tom hits as a second pass when active. Tom_mid is the weakest individually-detected class -- if a fill lands in the wrong tom lane, use Reclassify. Turn off Snap to Grid for fast fills.
+- **Ride** -- leave detection OFF by default. Hi-hats/crashes that should be ride land in their original lanes -- Reclassify them in the MIDI Editor.
+- **Kicks** -- accurate on most material; v4.4.3+ kick dedup widened to 40ms automatically merges close-together duplicate triggers. Too many: raise ML threshold. Too few: lower threshold or add manually.
+- **Snares** -- v4.3.30 raised the wire-band threshold to filter out roughly 97% of snare false positives across pop / metal / rock / alternative material; the funk preset's lower wire-band default is intentional for ghost notes.
 
 ---
 
@@ -373,11 +379,28 @@ Load a reference MIDI as faded background notes -- useful for charting multiple 
 
 ---
 
-## Track Preview (Tab 11)
+## Preview/Practice Track (Tab 11)
+
+Two subtabs that share the same loaded chart and audio.
+
+### Preview subtab
 
 Watch your chart fall exactly as it will appear in Paradiddle, synced to your audio.
 
-**Audio toggle** -- switch between Full Mix and Drums-only stem during playback.
+- **Audio toggle** -- switch between Full Mix and Drums-only stem during playback.
+- **Speed slider** (0.7x - 1.0x) -- pitch-preserving time stretch with live update during playback.
+- **Square notes toggle, beat grid, lane color bars** -- visual presentation options.
+
+### Practice Mini-Game subtab
+
+Play through the chart with keyboard controls before exporting -- great for catching missed hits or off timing without leaving ParaKit.
+
+- **Drum-style controls** -- click the gear button to remap keys.
+- **Hit / Miss feedback** -- per-lane key-press flash bar lights up on every keypress; PERFECT/GOOD/MISS label appears below the hit line. Keypresses outside the ±75 ms hit window do not count as misses or break the streak.
+- **Streak + accuracy tracking** -- live counter on the side panel.
+- **Input latency adjustment** -- Audio output latency slider (0-200 ms, auto-estimated per OS) compensates for the gap between when audio playback starts and when sound reaches the speakers.
+
+> Note: Practice Mini-Game is visual-only -- it does not edit MIDI files or add external MIDI device support.
 
 ---
 
@@ -496,5 +519,5 @@ Watch your chart fall exactly as it will appear in Paradiddle, synced to your au
 
 ---
 
-*Created by Micah P.G. -- ParaKit v4.4.9 -- For the Paradiddle & Clone Hero Community*
+*Created by Micah P.G. -- ParaKit v4.4.9 -- For the Paradiddle Community
 
