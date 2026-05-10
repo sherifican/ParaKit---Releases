@@ -446,7 +446,7 @@ Play through the chart with keyboard controls before exporting -- great for catc
 | Clone Hero cymbals wrong | Verify `pro_drums = True` is in `song.ini` (ParaKit writes this automatically) |
 | ML model not found | Click Get Model in the Detection Engine section, or place `parakit_drum_model.onnx` next to `ParaKit.exe` / in `Requirements\` |
 | Neural Stem Isolation log says "Separator failed" | v4.4.4-v4.4.7 had a bug where the splitter threw a NameError; fixed in v4.4.8. ParaKit cleanly falls back to default detection so your conversion still finishes. Re-download the model only if the log says hash-mismatch. |
-| Hybrid feels worse than Spectral on a drums-only stem | Old v4.0-era guidance said Spectral was better for drums-only stems. v4.3.30+ data shows Hybrid wins decisively (snare F1 0.12 → 0.65 on metal). The in-app guidance was corrected in v4.4.9. Use Hybrid. |
+| Hybrid feels worse than Spectral on a drums-only stem | Old pre-v4.0-era guidance said Spectral was better for drums-only stems. v4.3.30+ data shows Hybrid wins decisively (snare F1 0.12 → 0.65 on metal). The in-app guidance was corrected in v4.4.9. Use Hybrid. |
 
 ---
 
