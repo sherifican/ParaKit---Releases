@@ -244,7 +244,7 @@ A new section in the **Audio -> MIDI Settings** panel added in v4.4.4. When turn
 **First-time setup:** flip the toggle to Jarredou and click **Download model** -- a one-time ~417 MB download. The model is cached to your user app-data folder, not bundled with the release zip. Subsequent runs reuse the cached model.
 
 **Cost / caveats:**
-- CPU-only inference in this version. GPU support coming when PyTorch catches up to RTX 50-series.
+- CPU-only inference in this version. GPU support coming when PyTorch catches up to RTX 50-series. Users with supported GPUs will still have the option for GPU acceleration.
 - Adds ~30-60s per song to detection time.
 - The ride lane still uses default detection (Jarredou's ride stem is not yet routed through the detector).
 - If anything goes wrong with the splitter at run time, ParaKit automatically falls back to default detection on the original audio so your conversion still finishes.
