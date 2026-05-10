@@ -1,4 +1,4 @@
-# ParaKit--Paradiddle PC / VR w/Clone Hero Export Support
+# ParaKit--Paradiddle PC / VR (w/Clone Hero Export Support as of v4.0.9)
 
 ### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.9
 
