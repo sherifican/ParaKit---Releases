@@ -111,7 +111,7 @@ Combine MIDI + audio into a chart. Select **Paradiddle (.rlrr)**, **Clone Hero (
 
 Manual download if needed: [github.com/yt-dlp/yt-dlp/releases/latest](https://github.com/yt-dlp/yt-dlp/releases/latest)
 
-### Optional Requirements Folder
+### Requirements Folder
 
 ParaKit v4.1.8+ can keep external helper files in a cleaner `Requirements\` folder next to `ParaKit.exe`:
 
@@ -119,9 +119,16 @@ ParaKit v4.1.8+ can keep external helper files in a cleaner `Requirements\` fold
 ParaKit.exe
 Requirements\
   ffmpeg.exe
+  ffplay.exe
   ffprobe.exe
   yt-dlp.exe
+  deno.exe
+  htdemucs
+  adb.exe
+  AdbWinApi.dll
+  AdbWinUsbApi.dll
   platform-tools\
+  Extractor Mini App\
   parakit_drum_model.onnx
   demucs_models\
   drumsep_model\
