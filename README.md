@@ -11,7 +11,7 @@
 The goal of this project is to make drum chart creation as accessible as possible -- NO paywalls, no juggling multiple audio software and/or free web-services with ads everywhere, lower barrier to entry. If you've ever wanted to play a song that isn't in the game, this tool is for you.
 
 *Compatible with **Paradiddle (PC)** and **Paradiddle VR (Meta Quest 3)** and **Clone Hero (PC)**
-Built for use with any supported e-drum kit or the in-game virtual kit, in app MIDI input device support comming soon!*
+Built for use with any supported e-drum kit or the in-game virtual kit, in app MIDI input device support coming soon!*
 
 ## Features in the Works:
 
