@@ -1,12 +1,8 @@
 # ParaKit for Paradiddle PC / VR & Clone Hero
 
-### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.51
+### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.52
 
 *NOTE -- v4.0+ has delivered MASSIVE improvements to the Audio → MIDI auto detector (including the new Neural Stem Isolation in v4.4.4), major UI cleanup, and many quality-of-life features. See the Changelog at the bottom for what has landed since v3.5.1* 
-
-***The v4.5.0 public release is on the way. Release planned for the week of May 11th, 2026***
-
-I'm using this README to show progress as it's made on the project, page last updated on ***5/10/26***
 
 > **DOWNLOAD:** CURRENT RELEASE (v3.5.1): [https://limewire.com/d/svTK9#fqZoG5vUjc]
 
