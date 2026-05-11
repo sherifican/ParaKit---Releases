@@ -12,13 +12,12 @@ The goal of this project is to make drum chart creation as accessible as possibl
 
 ## Features in the Works:
 
-> | **PLANNED FEATURE IN FUTURE UPDATES** | 
-
-I'm working on adding in either full or partial MIDI input device support. This will allow for users to use their MIDI input device, a drumkit, a MIDI pad controller, or whatever, to place notes along the track in the MIDI editor.
+> I'm working on adding in either full or partial MIDI input device support. This will allow for users to use their MIDI input device, a drumkit, a MIDI pad controller, or whatever, to place notes along the track in the MIDI editor.
 This would be pretty useful for those who want to chart their own personally composed songs, or for those who would rather just actually play the song instead of doing it the traditional listen & click method. I would also of course add MIDI input to the Mini Game as well. Stay tuned. |
 
 Compatible with **Paradiddle (PC)** and **Paradiddle VR (Meta Quest 3)** and **Clone Hero (PC)**
 Built for use with any supported e-drum kit or the in-game virtual kit
+
 
 > The **Quick Start & FAQ tab** inside the app covers everything in detail.
 
