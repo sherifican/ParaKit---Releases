@@ -10,7 +10,7 @@
 
 The goal of this project is to make drum chart creation as accessible as possible -- NO paywalls, no juggling multiple audio software and/or free web-services with ads everywhere, lower barrier to entry. If you've ever wanted to play a song that isn't in the game, this tool is for you.
 
-
+##Features in the Works:
 | **PLANNED FEATURE IN FUTURE UPDATES** | I'm working on adding in either full or partial MIDI input device support. This will allow for users to use their MIDI input device, a drumkit, a MIDI pad controller, or whatever, to place notes along the track in the MIDI editor.
 This would be pretty useful for those who want to chart their own personally composed songs, or for those who would rather just actually play the song instead of doing it the traditional listen & click method. I would also of course add MIDI input to the Mini Game as well. Stay tuned. |
 
