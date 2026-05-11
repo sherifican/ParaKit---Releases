@@ -1,18 +1,18 @@
-# ParaKit--Paradiddle PC / VR (.chart exports as of v4.0.9+)
+# ParaKit for Paradiddle PC / VR & Clone Hero
 
-### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.9
+### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.51
 
-*NOTE -- v4.0+ has delivered MASSIVE improvements to the Audio → MIDI auto detector (including the new Neural Stem Isolation in v4.4.4), major UI cleanup, and many quality-of-life features. See the Changelog at the bottom for what has landed since v3.5.1. The v4.5.0 public release is on the way.*
+*NOTE -- v4.0+ has delivered MASSIVE improvements to the Audio → MIDI auto detector (including the new Neural Stem Isolation in v4.4.4), major UI cleanup, and many quality-of-life features. See the Changelog at the bottom for what has landed since v3.5.1* 
+
+***The v4.5.0 public release is on the way. Release planned for the week of May 11th, 2026***
+
+I'm using this README to show progress as it's made on the project, page last updated on ***5/10/26***
 
 > **DOWNLOAD:** CURRENT RELEASE (v3.5.1): [https://limewire.com/d/svTK9#fqZoG5vUjc]
 
-*v4.5 Release planned for week of May 11th, 2026*
-
-*README last updated on 5/9/26*
-
 > **v3.5+ ships with all requirements included in the main .zip download** -- no separate installs needed.
 
-The goal of this project is to make drum chart creation as accessible as possible -- no paywalls, lower barrier to entry. If you've ever wanted to play a song that isn't in the game, this tool is for you.
+The goal of this project is to make drum chart creation as accessible as possible -- no paywalls, no confusing professional audio software, lower barrier to entry. If you've ever wanted to play a song that isn't in the game, this tool is for you.
 
 Compatible with **Paradiddle (PC)** and **Paradiddle VR (Meta Quest 3)** and **Clone Hero (PC)**
 Built for use with any supported e-drum kit or the in-game virtual kit
@@ -25,7 +25,7 @@ Built for use with any supported e-drum kit or the in-game virtual kit
 
 ## Is ParaKit Right for You?
 
-If you're already experienced with MIDI charting and have your own workflow using tools like Reaper, Audacity, or similar -- ParaKit probably won't replace your primary methods. That said, parts of it may still save you steps: the Song Creator, Stem Splitter, Sheet Music -> MIDI, YouTube -> FLAC, Asset Manager, and Track Preview can all slot into an existing workflow without replacing it.
+If you're already experienced with MIDI charting and have your own workflow using tools like Reaper, Audacity, or similar -- ParaKit probably won't replace your primary methods. That said, parts of it may still save you steps: the Song Creator, Stem Splitter, Sheet Music -> MIDI, YouTube -> FLAC, Asset Manager, and Preview/Practice Track can all slot into an existing workflow without replacing it.
 
 If you're new to charting, or find dedicated audio/MIDI software difficult, confusing, or just more than you need -- ParaKit handles the full pipeline in one place with enough automation to get a playable chart without prior experience.
 
@@ -179,7 +179,7 @@ Outputs three folders next to your input audio:
 
 - **DRUMS ONLY** -- isolated drum track as `.ogg` *(for game packaging)*
 - **BACKINGS** -- everything except drums as `.ogg` *(for game packaging)*
-- **SPLITS TO USE IN AUTO DETECTOR** -- lossless `.flac` drums stem *(fed to Audio -> MIDI for cleaner detection)*
+- **LOSSLESS SPLITS (DRUMS)** -- lossless `.flac` drums stem *(fed to Audio -> MIDI for cleaner detection)*
 
 The success popup's **Send Lossless Drums to MIDI Converter** button routes the FLAC to the Audio -> MIDI tab automatically -- no manual file picking required.
 
@@ -241,7 +241,7 @@ A new section in the **Audio -> MIDI Settings** panel added in v4.4.4. When turn
 
 **When to use it:** songs with lots of bleed between drum components -- especially metal tracks where kick and crash hit at the same time, or tracks where the hi-hat sits low in the mix and gets confused with cymbals.
 
-**First-time setup:** flip the toggle to Jarredou and click **Download model** -- a one-time ~417 MB download. The model is cached to your user app-data folder, not bundled with the release zip. Subsequent runs reuse the cached model.
+**First-time setup:** flip the toggle to Jarredou and click **Download Model** -- a one-time ~417 MB download. The model is cached to your user app-data folder, not bundled with the release zip. Subsequent runs reuse the cached model.
 
 **Cost / caveats:**
 - CPU-only inference in this version. GPU support coming when PyTorch catches up to RTX 50-series.
@@ -279,7 +279,7 @@ Presets are starting points -- if one gives strange results, try another preset,
 
 **Instrument notes:**
 
-- **Toms** -- spectral detection is unreliable on toms; Hybrid is better. Enhanced Detection (v4.4.0+) with Toms or Crash + Toms turned on adds LarsNet stem-based tom hits as a second pass when active. Tom_mid is the weakest individually-detected class -- if a fill lands in the wrong tom lane, use Reclassify. Turn off Snap to Grid for fast fills.
+- **Toms** -- spectral detection is unreliable on toms; Hybrid is better. Enhanced Detection (v4.4.0+) with Toms or Crash + Toms turned on adds LarsNet stem-based tom hits as a second pass when active. Mid Tom is the hardest drum class to detect -- if a fill lands in the wrong tom lane, use Reclassify. Turn off Snap to Grid for fast fills.
 - **Ride** -- leave detection OFF by default. Hi-hats/crashes that should be ride land in their original lanes -- Reclassify them in the MIDI Editor.
 - **Kicks** -- accurate on most material; v4.4.3+ kick dedup widened to 40ms automatically merges close-together duplicate triggers. Too many: raise ML threshold. Too few: lower threshold or add manually.
 - **Snares** -- v4.3.30 raised the wire-band threshold to filter out roughly 97% of snare false positives across pop / metal / rock / alternative material; the funk preset's lower wire-band default is intentional for ghost notes.
@@ -388,15 +388,17 @@ Two subtabs that share the same loaded chart and audio.
 Watch your chart fall exactly as it will appear in Paradiddle, synced to your audio.
 
 - **Audio toggle** -- switch between Full Mix and Drums-only stem during playback.
-- **Speed slider** (0.7x - 1.0x) -- pitch-preserving time stretch with live update during playback.
-- **Square notes toggle, beat grid, lane color bars** -- visual presentation options.
+- **Zoom (note fall time)** slider -- default 2.5s. Higher values show more notes at once (zoomed out); lower values show fewer notes larger (zoomed in). Range 0.5-15.0 seconds.
+- **Note size, square notes toggle, beat grid, hit-line glow** -- visual presentation options in the Visual Settings panel on the right.
+- **Lane Visibility checkboxes** -- hide/show individual drum lanes.
 
 ### Practice Mini-Game subtab
 
 Play through the chart with keyboard controls before exporting -- great for catching missed hits or off timing without leaving ParaKit.
 
 - **Drum-style controls** -- click the gear button to remap keys.
-- **Hit / Miss feedback** -- per-lane key-press flash bar lights up on every keypress; PERFECT/GOOD/MISS label appears below the hit line. Keypresses outside the ±75 ms hit window do not count as misses or break the streak.
+- **Directional hit feedback (v4.4.26+)** -- per-lane key-press flash bar lights up on every keypress; below the hit line, the result shows as **PERFECT** (within ±35 ms), **EARLY** (pressed before the perfect window but still in the hit window), **LATE** (pressed after the perfect window but still in the hit window), or **MISS** (a note aged past the hit line without input). The EARLY / LATE split replaces the older single GOOD label so you can tell which way to adjust your timing.
+- **Flash bar at the bottom of the play area (v4.4.27+)** -- the per-lane keypress flash bar sits right above the key/note legend strip instead of near the hit line, so it doesn't crowd the falling notes.
 - **Streak + accuracy tracking** -- live counter on the side panel.
 - **Input latency adjustment** -- Audio output latency slider (0-200 ms, auto-estimated per OS) compensates for the gap between when audio playback starts and when sound reaches the speakers.
 
@@ -441,12 +443,12 @@ Play through the chart with keyboard controls before exporting -- great for catc
 | Stem Splitter fails | Keep `ffmpeg.exe` / `ffprobe.exe` next to `ParaKit.exe` or in `Requirements\` |
 | Stem Splitter slow | Normal for AMD/Intel and RTX 50-series |
 | YouTube fails | Keep `yt-dlp.exe` next to `ParaKit.exe` or in `Requirements\`; keep Auto-update on |
-| Push to Quest fails | check ADB.exe is next to ParaKit.exe & neccessary settings on your quest are toggled on |
+| Push to Quest fails | Check `adb.exe` is next to `ParaKit.exe` (or in `Requirements\platform-tools\`), and confirm Developer Mode is on for your Quest in the Meta app |
 | App crashed silently | Check `parakit_crash.txt` next to `ParaKit.exe` |
 | Clone Hero cymbals wrong | Verify `pro_drums = True` is in `song.ini` (ParaKit writes this automatically) |
-| ML model not found | Click Get Model in the Detection Engine section, or place `parakit_drum_model.onnx` next to `ParaKit.exe` / in `Requirements\` |
+| ML model not found | Click Download Model in the Detection Engine section, or place `parakit_drum_model.onnx` next to `ParaKit.exe` / in `Requirements\` |
 | Neural Stem Isolation log says "Separator failed" | v4.4.4-v4.4.7 had a bug where the splitter threw a NameError; fixed in v4.4.8. ParaKit cleanly falls back to default detection so your conversion still finishes. Re-download the model only if the log says hash-mismatch. |
-| Hybrid feels worse than Spectral on a drums-only stem | Old pre-v4.0 era guidance said Spectral was better for drums-only stems. v4.3.30+ data shows Hybrid wins decisively (snare F1 0.12 → 0.65 on metal). The in-app guidance was corrected in v4.4.9. Use Hybrid. |
+| Hybrid feels worse than Spectral on a drums-only stem | Old v4.0-era guidance said Spectral was better for drums-only stems. v4.3.30+ data shows Hybrid wins decisively (snare F1 0.12 → 0.65 on metal). The in-app guidance was corrected in v4.4.9. Use Hybrid. |
 
 ---
 
@@ -471,6 +473,30 @@ Play through the chart with keyboard controls before exporting -- great for catc
 
 | Version | Summary |
 |---------|---------|
+| **v4.4.51** | MIDI Editor "Send to Song Creator" button now also sends the currently loaded Drums audio stem into Song Creator's Drum Audio field, alongside the MIDI. Pairs with the v4.4.40 BPM auto-enable + v4.4.41 save-unsaved-before-handoff so a Song Creator handoff arrives with MIDI + Drums Audio + correct BPM source all set. Backing audio (Song Audio / Full Mix) is still added manually so the user can choose which stem ships as the in-game backing track. |
+| **v4.4.50** | Song Creator BPM defaults flipped. "Use BPM from MIDI file" is now the default toggled option and is labeled (recommended); "Auto-detect BPM from audio" is still available, just no longer the default. Reflects the typical ParaKit workflow where the MIDI is created in-app (via Audio → MIDI or the MIDI Editor) so the BPM is already correct in the MIDI file. Existing projects keep their saved BPM-source setting on load. |
+| **v4.4.45 - v4.4.49** | **1080p Layout Mode (manual override + auto-detect + docs).** New Tools > Layout Mode submenu lets you force **Auto** (default), **Compact** (1080p / smaller displays), or **Roomy** (1440p / larger displays). Compact mode tightens the header, logo, wordmark, tab strip, buttons, and helper text so the MIDI Editor piano roll and Velocity Lane have more room on 1080p displays. Auto-detect threshold broadened to also cover 1920x1200 panels. A small orange hint under the main header tells users to use Tools > Layout Mode if ParaKit looks cramped on their monitor; Help tab gains a dedicated **Layout Mode (1080p / 1440p)** section explaining what each option does and when to use each. About ParaKit dialog now credits the creator. Roomy-header README/Quick-Start row removed so the layout hint adds zero net vertical space on 1440p. |
+| **v4.4.44** | Internal What's New panel cleanup (consolidated the recent visual-polish iteration entries into one Polish pass block so the in-app panel reads cleaner). No source-side functional changes. |
+| **v4.4.43** | **App-wide dark purple button style.** The dark purple button look that was tested only on the MIDI Editor in v4.4.35-v4.4.38 is now the global ParaKit button language. All ttk buttons across every tab use the same `#7c3aed` base, lighter purple hover, and darker violet pressed state. |
+| **v4.4.42** | Song Creator "auto-clip first 15s of Song Audio as preview" option removed and replaced with guidance to use Asset Manager. Song Audio is typically the backing track without drums, so the old auto-clip often produced empty-sounding previews. New flow: trim the preview clip from the full mix in Asset Manager, then click **"Send clip to Song Creator"** to populate the Preview Clip field automatically. Compact-layout pass on 1080p monitors also tightened (smaller header/logo, tabs, buttons, MIDI Editor helper text). |
+| **v4.4.40 - v4.4.41** | **MIDI Editor → Song Creator handoff fixes.** The handoff button now automatically enables Song Creator's "Use BPM from MIDI file" toggle and writes any unsaved MIDI Editor edits to disk before sending the MIDI path onward. Prevents Song Creator from converting a stale disk version of a MIDI you edited but forgot to save. In Save-as-copy mode, ParaKit prompts for the copy path first; in Modify-original mode, it writes the current notes back to the original MIDI file before handing off. |
+| **v4.4.39** | **1080p compact layout mode (auto-detect).** ParaKit detects 1920x1080-class monitor work areas at startup and switches to a tighter chrome layout — smaller header, smaller logo/wordmark, tighter notebook tab padding, smaller button padding, tighter MIDI Editor field/frame spacing. 1440p+ displays keep the roomier layout. Multi-monitor setups where auto-detect picks the wrong monitor can use the manual override added in v4.4.45. |
+| **v4.4.36 - v4.4.38** | Radio button text labels across the app rendered in ParaKit primary purple instead of the default light-gray, matching the radio indicator dots' color. Theme is now re-applied on every tab switch so the just-activated tab's radios always render with the correct foreground (earlier builds only applied on the tab open at startup). |
+| **v4.4.31 - v4.4.34** | **Recent-files dropdown improvements.** Each file in any "▾" recent-files dropdown now has its own small **"✕"** remove button on the right -- drop a single file from the list without clearing all of them. The dropdown row-hover highlight and the X-button color are now ParaKit purple (the dropdown previously used a red accent that didn't match the rest of the app). Tooltips and recent-files dropdowns are also border-aware: when one would clip off the right or bottom screen edge, it auto-shifts left or flips above the widget so it stays fully visible. |
+| **v4.4.30** | Preview/Practice Track: the right-side Visual Settings + Lane Visibility panel now sits directly adjacent to the play area instead of hugging the far right edge of the tab. The play area still occupies the left half of the tab; only the right-side panel position moved. |
+| **v4.4.28 - v4.4.29** | **Waveform display style toggle in the MIDI Editor.** The waveform strip below the piano roll can now render in three styles: **Bars** (default per-pixel intensity-gradient), **Filled (Jagged)** (peak-traced ParaKit-purple polygon — easier to read on dense passages where Bars looks like a uniform stripe), and **Jagged (Detailed)** (two thin purple lines tracing the top and bottom of the audio peaks with empty space between them — same rendering style as the developer Stem Compare tool). Toggle in the Display & Snap panel; preference is remembered across app restarts. |
+| **v4.4.27** | Practice Mini-Game: the per-lane keypress flash bar (the short-lived colored bar that appears when you tap a lane key) now sits at the bottom of the play area, right above the key/note legend strip. Earlier placement was too close to the note outlines at the hit line. |
+| **v4.4.26** | **Practice Mini-Game directional hit feedback.** The old single "GOOD" mid-tier label is replaced by directional **EARLY** and **LATE** labels. EARLY shows when you press a key before the note's perfect window; LATE shows when you press after. PERFECT (±35 ms) and MISS are unchanged. Hit window stays ±75 ms. |
+| **v4.4.25** | Preview/Practice Track layout: the play area now occupies about half of the window width (was nearly full width), with the Visual Settings + Lane Visibility panel sitting to the right. Default note fall time changed from 8.0s to 2.5s — notes feel snappier and arrive faster by default. Use the Zoom slider on the tab to dial back up if you prefer a slower pace; range still 0.5-15.0s. |
+| **v4.4.21 - v4.4.24** | **Practice / Preview Track corrective polish.** Practice keypresses register reliably even after clicking other controls (key handling moved to root-level binding with editable-widget guard). Preview falling notes now disappear immediately when they line up with the hit-line outline instead of hanging for a fraction of a second past it; Practice keeps the small hangover so PERFECT/EARLY/LATE/MISS feedback labels have a paired visual at the hit line. Practice notes share the same light outlines as Preview notes. Default note size restored to 0.8x. |
+| **v4.4.18 - v4.4.20** | Preview/Practice Track: the speed slider has been removed. It was causing timing issues -- the time-stretch path didn't always sync cleanly back to the falling-notes display. Use the existing Zoom (note fall time) slider to slow down practice instead; it handles the same use case without touching audio timing. Corrective Practice visual fixes followed: per-lane keypress flash, per-lane hit-line target markers (square or round, matching Square Notes setting), and white outlines on Preview falling notes were all restored. |
+| **v4.4.16 - v4.4.17** | Small UI polish bumps in the iteration window between v4.4.15 (label cleanup) and v4.4.18 (speed-slider removal). Minor tooltip / status copy fixes. |
+| **v4.4.15** | MIDI Editor / Help / Song Tester: stale "Track Preview" label updated to "Preview/Practice Track" across the live UI and Help tab (the tab itself was renamed in v4.3.5; some live buttons + Help text didn't track the rename). Tab-number references corrected in the Help tab and the Audio → MIDI sync-warning popup. README versions also bumped to match. No behavior changes. |
+| **v4.4.14** | Encoding-roundtrip cleanup. Plus-or-minus signs (±), the warning triangle (⚠), a checkmark (✓), and an arrow (→) were rendering as garbled characters (Â± / ?) in nine spots — Sheet Music Help, MIDI Editor reactive-notes Help, Practice Mini-Game older-version notes, two Audio → MIDI sync-warning popups, MIDI Editor Review Issues status, and a debug log line. All nine fixed; text reads cleanly everywhere. |
+| **v4.4.13** | MIDI Editor hotkeys (1-8), D-key marker drop, and Ctrl+V paste now work correctly during playback. Previously they dropped the note/marker/paste at the playback START position (frozen offset) instead of the live audible playhead — so notes always landed at t=0 or wherever you pressed Play from. All three handlers now use the live playhead during playback and the last canvas-click position when paused, matching the documented behavior. |
+| **v4.4.12** | Stem Splitter output folder rename. "SPLITS TO USE IN AUTO DETECTOR" is now called "LOSSLESS SPLITS (DRUMS)" — same folder, same content (lossless FLAC drums stem fed to Audio → MIDI for cleaner detection), just a clearer name describing what's in it. Existing folders on your disk keep their old names; new conversions create folders with the new name. |
+| **v4.4.11** | Build layout change for the .exe download. PyInstaller spec switched from `--onefile` (single self-extracting .exe) to `--onedir` (small ParaKit.exe + `_internal/` folder containing all bundled libraries). The whole folder is what users download and unzip; total disk size is roughly the same as the onefile build, just split. Faster startup (no temp-folder extraction every launch) and ParaKit.exe is small enough to host on GitHub Releases directly. No effect on `.py` runs. |
+| **v4.4.10** | Build packaging fix for the .exe release. The PyInstaller spec was missing the v4.4.4 Neural Stem Isolation backend module, so a built .exe would have failed to run the AI splitter at runtime with a missing-module error. Spec is fixed; the next .exe build packages it correctly. No user-visible behavior change for .py users. |
 | **v4.4.9** | Audio → MIDI Detection Engine guidance copy corrected. The note under the Spectral / ML / Hybrid radios used to say Spectral was the better choice for drums-only stems. That was outdated v4.0-era advice. Internal testing on a metal drums-only corpus shows Hybrid wins decisively: snare F1 0.12 → 0.65, hi-hat 0.00 → 0.27, crash 0.16 → 0.23. New note now recommends Hybrid for both full mixes and drums-only stems. No detection logic changed; only the guidance text. |
 | **v4.4.8** | Neural Stem Isolation actually works now. Since v4.4.4 the new toggle was silently failing every time at the start of conversion (NameError on a missing `import time` inside the v4.4.4 separator-slot wrap), so ParaKit fell back to default detection on the original audio. Conversions still completed but you weren't getting the AI-cleaned drums. Fix: added the missing local import. Surfaced by smoke test 2026-05-09. |
 | **v4.4.7** | Loading bars added to the **Audio to .ogg Converter** and **Create Multiple Songs** tabs. Both tabs now show ParaKit's animated purple progress bar while a conversion is running, so you can tell at a glance the app is still working instead of frozen. Covers both the 3-slot batch section and the Folder Batch section underneath it. |
@@ -519,5 +545,6 @@ Play through the chart with keyboard controls before exporting -- great for catc
 
 ---
 
-*Created by Micah P.G. -- ParaKit v4.4.9 -- For the Paradiddle Community
+*Created by Micah P.G. -- ParaKit v4.4.51 -- For the Paradiddle & Clone Hero Community*
+
 
