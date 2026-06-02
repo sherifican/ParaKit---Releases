@@ -2,6 +2,9 @@
 
 ### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.52
 
+
+*The v5.0+ Major Overhaul Update/Rebuild is in the works and will be coming ASAP.*
+
 *NOTE -- v4.0+ has delivered MASSIVE improvements to the Audio → MIDI auto detector (including the new Neural Stem Isolation in v4.4.4), major UI cleanup, and many quality-of-life features. See the Changelog at the bottom for what has landed since v3.5.1* 
 
 > **DOWNLOAD CURRENT PUBLIC BUILD:** [Click here for the v4.4.52 LimeWire Download](https://limewire.com/d/UV9Zm#DHqxKgEtmn)]
