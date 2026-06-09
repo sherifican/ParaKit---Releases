@@ -2,6 +2,10 @@
 
 ### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.52
 
+<div align="center">
+  <img src="screenshots/app-01-single-song-creator.png" width="860" alt="ParaKit — Single Song Creator">
+</div>
+
 ---
 
 ## 🥁 NEW — Practice Mode v2: Web Edition (a huge upgrade)
@@ -14,6 +18,14 @@ The **Preview / Practice** experience has been completely rebuilt from the groun
 - **Runs anywhere** — one self-contained HTML file. No install, no dependencies.
 
 **▶ Try it now:** download **[`Practice Window v2 - Web Edition/parakit-practice.html`](Practice%20Window%20v2%20-%20Web%20Edition/parakit-practice.html)** and open it in any modern browser (Chrome or Edge recommended for USB-MIDI support).
+
+**See it in action:**
+
+<p align="center">
+  <img src="screenshots/practice-web-setup.png" width="300" alt="Practice — setup screen">
+  <img src="screenshots/practice-web-gameplay-1.png" width="300" alt="Practice — gameplay">
+  <img src="screenshots/practice-web-gameplay-2.png" width="300" alt="Practice — gameplay, full lanes">
+</p>
 
 > **This web edition is the de-facto final version of Practice Mode v2 for now.** An updated native version folded back into the desktop app is planned for a later release — but you don't need to wait: the web edition is complete and ready to play today.
 
@@ -71,6 +83,54 @@ If you're new to charting, or find dedicated audio/MIDI software difficult, conf
 | 10 | Song Tester | Verify BPM and sync |
 | 11 | **Preview/Practice Track** | Watch chart as falling notes (Preview) or play it like a rhythm game with keyboard controls (Practice Mini-Game subtab) |
 | 12 | Quick Start & FAQ | Built-in guide and troubleshooting |
+
+---
+
+## 📸 Screenshots — every tab
+
+<details>
+<summary><b>🖼️ Click to expand — see every tab</b></summary>
+
+<br>
+
+### 1 · Single Song Creator
+<img src="screenshots/app-01-single-song-creator.png" width="900" alt="Single Song Creator">
+
+### 2 · Create Multiple Songs
+<img src="screenshots/app-02-create-multiple-songs.png" width="900" alt="Create Multiple Songs">
+
+### 3 · Audio → .ogg Converter
+<img src="screenshots/app-03-audio-to-ogg.png" width="900" alt="Audio to .ogg Converter">
+
+### 4 · Stem Splitter
+<img src="screenshots/app-04-stem-splitter.png" width="900" alt="Stem Splitter">
+
+### 5 · Audio → MIDI
+<img src="screenshots/app-05-audio-to-midi.png" width="900" alt="Audio to MIDI">
+
+### 6 · MIDI Editor
+<img src="screenshots/app-06-midi-editor.png" width="900" alt="MIDI Editor">
+
+### 7 · Sheet Music → MIDI
+<img src="screenshots/app-07-sheet-music-to-midi.png" width="900" alt="Sheet Music to MIDI">
+
+### 8 · YouTube → FLAC
+<img src="screenshots/app-08-youtube-to-flac.png" width="900" alt="YouTube to FLAC">
+
+### 9 · Asset Manager
+<img src="screenshots/app-09-asset-manager.png" width="900" alt="Asset Manager">
+
+### 10 · Song Tester
+<img src="screenshots/app-10-song-tester.png" width="900" alt="Song Tester">
+
+### 11 · Preview / Practice Track
+<img src="screenshots/app-11a-preview.png" width="900" alt="Preview subtab"><br><br>
+<img src="screenshots/app-11b-practice.png" width="900" alt="Practice subtab">
+
+### 12 · Quick Start & FAQ
+<img src="screenshots/app-12-quick-start-faq.png" width="900" alt="Quick Start & FAQ">
+
+</details>
 
 ---
 
