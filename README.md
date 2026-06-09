@@ -2,6 +2,23 @@
 
 ### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.52
 
+---
+
+## 🥁 NEW — Practice Mode v2: Web Edition (a huge upgrade)
+
+The **Preview / Practice** experience has been completely rebuilt from the ground up as a fast, **self-contained web app** — a massive step up from the original in-app mini-game. Notes fall down 8 lanes in perfect time with the music while you play along on a **USB MIDI drum kit or your keyboard**.
+
+- **Rock-solid timing** — a new sample-accurate audio engine eliminates the drift the older build fought with for weeks.
+- **One-click play** — no separate launcher; includes a built-in demo, plus a synthesizer that makes *any* chart audible even with no audio file loaded.
+- **Latency-calibration wizard**, mid-song mix/stem switching, touch support, a results screen with a timing histogram, and full keyboard + MIDI play.
+- **Runs anywhere** — one self-contained HTML file. No install, no dependencies.
+
+**▶ Try it now:** download **[`Practice Window v2 - Web Edition/parakit-practice.html`](Practice%20Window%20v2%20-%20Web%20Edition/parakit-practice.html)** and open it in any modern browser (Chrome or Edge recommended for USB-MIDI support).
+
+> **This web edition is the de-facto final version of Practice Mode v2 for now.** An updated native version folded back into the desktop app is planned for a later release — but you don't need to wait: the web edition is complete and ready to play today.
+
+---
+
 
 *The v5.0+ Major Overhaul Update/Rebuild is in the works and will be coming ASAP.*
 
