@@ -16,6 +16,7 @@ The **Preview / Practice** experience has been completely rebuilt from the groun
 - **One-click play** — no separate launcher; includes a built-in demo, plus a synthesizer that makes *any* chart audible even with no audio file loaded.
 - **Latency-calibration wizard**, mid-song mix/stem switching, touch support, a results screen with a timing histogram, and full keyboard + MIDI play.
 - **Runs anywhere** — one self-contained HTML file. No install, no dependencies.
+- **Loading your own song** — the built-in demo plays by default, so a track is always there the moment you open it. To practice your own, click **Choose MIDI** or **Choose .rlrr** to load a chart, and **Full Mix** / **Drum Stem** to load the audio.
 
 **▶ Try it now:** download **[`Practice Window v2 - Web Edition/parakit-practice.html`](Practice%20Window%20v2%20-%20Web%20Edition/parakit-practice.html)** and open it in any modern browser (Chrome or Edge recommended for USB-MIDI support).
 
@@ -28,6 +29,26 @@ The **Preview / Practice** experience has been completely rebuilt from the groun
 </p>
 
 > **This web edition is the de-facto final version of Practice Mode v2 for now.** An updated native version folded back into the desktop app is planned for a later release — but you don't need to wait: the web edition is complete and ready to play today.
+
+---
+
+## 🔎 NEW — Preview Track v2: Web Edition (catch & fix chart issues without leaving the view)
+
+The **Preview** half of the falling-note experience also got a web rebuild — and a big new power: **a live Edit Mode that lets you fix detection problems right on the falling chart.** Watch your chart scroll down 8 lanes in time with the audio to spot a snare that landed early, a crash that should've been a ride, or a doubled hit — then pause, fix it in place, and resume. The see-it → fix-it loop, closed, with no tab switch.
+
+- **✎ Edit Mode (press `E`)** — pause and the subdivision grid becomes a precise ruler. **Click** an empty spot to place a note (snapped to the grid); **drag a note vertically to move it in time, horizontally to reclassify its lane** — drag a wrong-drum note straight onto the right one; one gesture, two fixes. **Right-click deletes** (hold & sweep = eraser); **wheel** scrubs, **Ctrl+wheel** zooms the fall window; `Ctrl+Z` / `Ctrl+Y` undo / redo.
+- **Tap-along charting** — keys **`1`–`8` drop a note at the hit line, even during playback**, so you can play along and tap in missing notes. **● Record** captures live keyboard / MIDI hits, with an optional **Count-in** + **Metronome**.
+- **Built for precise review** — **Speed** 0.5×–1.25× to slow a busy passage down, **Fall time** + **Grid** (1/4–1/32) + **Snap**, on-screen **🥁 Pads** for mouse/touch, **MIDI in** for a USB kit, and built-in demo charts (incl. a dense ~4.2k-note stress test).
+- **Loading your own song** — the built-in demo plays by default, so a track is always there. To review your own, click **Mix / Drums / Stems** to load an audio file, and **⇪ Import** to load a chart (or **⇪ Receive** one straight from the MIDI editor; **⇪ Export** saves your edits back out). Charts round-trip with the MIDI editor and Practice v2.
+
+**▶ Try it now:** download **[`Preview Track v2 - Web Edition/parakit-preview.html`](Preview%20Track%20v2%20-%20Web%20Edition/parakit-preview.html)** and open it in any modern browser (Chrome or Edge recommended for USB-MIDI).
+
+**See it in action:**
+
+<p align="center">
+  <img src="screenshots/preview-track-review.png" width="420" alt="Preview Track — review mode">
+  <img src="screenshots/preview-track-edit-mode.png" width="420" alt="Preview Track — Edit Mode (grid ruler + place / move / reclassify / delete)">
+</p>
 
 ---
 
