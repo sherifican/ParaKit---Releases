@@ -3,6 +3,10 @@
 ### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.52
 
 
+**NOTE: THE NEWER OPEN SOURCE REPO IS MAINTAINED/UPDATED MUCH MORE FREQUENTLY, HEAD OVER THERE
+FOR THE MOST UP TO DATE/BEST SUPPORTED VERSION:** https://github.com/sherifican/ParaKit-Open_Source
+
+
 
 > **DOWNLOAD CURRENT PUBLIC BUILD: [ParaKit Homepage](https://parakit.builtonweb.com/parakit/)**
 >
