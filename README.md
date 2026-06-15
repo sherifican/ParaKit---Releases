@@ -8,7 +8,7 @@ FOR THE MOST UP TO DATE / BEST SUPPORTED VERSION:` https://github.com/sherifican
 
 
 
-> `DOWNLOAD CURRENT PUBLIC BUILD:` [ParaKit Homepage](https://parakit.builtonweb.com/parakit/)**
+`DOWNLOAD CURRENT PUBLIC BUILD:` [ParaKit Homepage](https://parakit.builtonweb.com/parakit/)**
 >
 > 
 
