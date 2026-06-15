@@ -4,7 +4,7 @@
 
 
 
-> `**DOWNLOAD CURRENT PUBLIC BUILD:** Click here for the v4.4.52 Download Site: https://parakit.builtonweb.com/parakit`
+> **[DOWNLOAD CURRENT PUBLIC BUILD:](https://parakit.builtonweb.com/parakit/)**
 >
 > 
 
