@@ -2,6 +2,12 @@
 
 ### Custom Song Creator & All-in-One Drum Chart Tool - v4.4.52
 
+
+
+> `**DOWNLOAD CURRENT PUBLIC BUILD:** [Click here for the v4.4.52 Download Site](https://parakit.builtonweb.com/parakit/)]`
+>
+> 
+
 <div align="center">
   <img src="screenshots/app-01-single-song-creator.png" width="860" alt="ParaKit — Single Song Creator">
 </div>
@@ -47,19 +53,8 @@ The **Preview / Practice** experience, rebuilt from the ground up as a fast, **s
   <img src="screenshots/practice-web-gameplay-2.png" width="300" alt="Practice — gameplay, full lanes">
 </p>
 
-> **Both v2 and v3 are complete and ready to play today.** A single, best-of-both native version folded back into the desktop app is planned for a later release — no need to wait.
-
----
-
-## 🔎 NEW — Preview Track v2: Web Edition (catch & fix chart issues without leaving the view)
-
-The **Preview** half of the falling-note experience also got a web rebuild — and a big new power: **a live Edit Mode that lets you fix detection problems right on the falling chart.** Watch your chart scroll down 8 lanes in time with the audio to spot a snare that landed early, a crash that should've been a ride, or a doubled hit — then pause, fix it in place, and resume. The see-it → fix-it loop, closed, with no tab switch.
-
-- **✎ Edit Mode (press `E`)** — pause and the subdivision grid becomes a precise ruler. **Click** an empty spot to place a note (snapped to the grid); **drag a note vertically to move it in time, horizontally to reclassify its lane** — drag a wrong-drum note straight onto the right one; one gesture, two fixes. **Right-click deletes** (hold & sweep = eraser); **wheel** scrubs, **Ctrl+wheel** zooms the fall window; `Ctrl+Z` / `Ctrl+Y` undo / redo.
-- **Tap-along charting** — keys **`1`–`8` drop a note at the hit line, even during playback**, so you can play along and tap in missing notes. **● Record** captures live keyboard / MIDI hits, with an optional **Count-in** + **Metronome**.
-- **Built for precise review** — **Speed** 0.5×–1.25× to slow a busy passage down, **Fall time** + **Grid** (1/4–1/32) + **Snap**, on-screen **🥁 Pads** for mouse/touch, **MIDI in** for a USB kit, and built-in demo charts (incl. a dense ~4.2k-note stress test).
-- **Loading your own song** — the built-in demo plays by default, so a track is always there. To review your own, click **Mix / Drums / Stems** to load an audio file, and **⇪ Import** to load a chart (or **⇪ Receive** one straight from the MIDI editor; **⇪ Export** saves your edits back out). Charts round-trip with the MIDI editor and Practice v2.
-
+> **Both v2 and v3 are complete and ready to play today.** A single, best-of-both native version folded back into the desktop app is planned for a later release.
+> 
 **▶ Try it now:** download **[`Preview Track v2 - Web Edition/parakit-preview.html`](Preview%20Track%20v2%20-%20Web%20Edition/parakit-preview.html)** and open it in any modern browser (Chrome or Edge recommended for USB-MIDI).
 
 **See it in action:**
@@ -76,7 +71,7 @@ The **Preview** half of the falling-note experience also got a web rebuild — a
 
 *NOTE -- v4.0+ has delivered MASSIVE improvements to the Audio → MIDI auto detector (including the new Neural Stem Isolation in v4.4.4), major UI cleanup, and many quality-of-life features. See the Changelog at the bottom for what has landed since v3.5.1* 
 
-> **DOWNLOAD CURRENT PUBLIC BUILD:** [Click here for the v4.4.52 LimeWire Download](https://limewire.com/d/UV9Zm#DHqxKgEtmn)]
+> `**DOWNLOAD CURRENT PUBLIC BUILD:** [Click here for the v4.4.52 Download Site](https://parakit.builtonweb.com/parakit/)]`
 
 > **v3.5+ ships with all requirements included in the main .zip download** -- no separate installs needed.
 
