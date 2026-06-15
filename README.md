@@ -71,7 +71,8 @@ The **Preview / Practice** experience, rebuilt from the ground up as a fast, **s
 
 *NOTE -- v4.0+ has delivered MASSIVE improvements to the Audio → MIDI auto detector (including the new Neural Stem Isolation in v4.4.4), major UI cleanup, and many quality-of-life features. See the Changelog at the bottom for what has landed since v3.5.1* 
 
-> `**DOWNLOAD CURRENT PUBLIC BUILD:** [Click here for the v4.4.52 Download Site](https://parakit.builtonweb.com/parakit/)]`
+
+> **DOWNLOAD CURRENT PUBLIC BUILD: [ParaKit Homepage](https://parakit.builtonweb.com/parakit/)**
 
 > **v3.5+ ships with all requirements included in the main .zip download** -- no separate installs needed.
 
