@@ -8,8 +8,9 @@ FOR THE MOST UP TO DATE / BEST SUPPORTED VERSION:` https://github.com/sherifican
 
 
 
-`DOWNLOAD CURRENT PUBLIC BUILD:` [ParaKit Homepage](https://parakit.builtonweb.com/parakit/)
->
+`DOWNLOAD CURRENT PUBLIC BUILD:` [LimeWire link for v4.4.52](https://limewire.com/d/UV9Zm#DHqxKgEtmn)
+>the website i built to host the downloads is having issues and until i fix that LimeWire is the download, but
+>it will expire if it is not downloaded once per week, so I'm gonna try to fix the website fast.
 > 
 
 <div align="center">
