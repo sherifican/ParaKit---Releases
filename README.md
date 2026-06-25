@@ -14,6 +14,8 @@ FOR THE MOST UP TO DATE / BEST SUPPORTED VERSION:` https://github.com/sherifican
 >it will expire if it is not downloaded once per week, so I'm gonna try to fix the website fast.
 > 
 
+---
+
 <div align="center">
   <img src="screenshots/app-01-single-song-creator.png" width="860" alt="ParaKit — Single Song Creator">
 </div>
